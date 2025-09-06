@@ -38,7 +38,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'ecloria'
+
+    #Nos apps :
+    'home',
+    'orders',
+    'users',
+    'catalog',
 ]
 
 MIDDLEWARE = [
