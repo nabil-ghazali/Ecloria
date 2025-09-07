@@ -33,17 +33,12 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'django.contrib.admin',
-    'django.contrib.auth',
+    'django.contrib.auth',     #gestion des utilisateurspo
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
-    #Nos apps :
-    'home',
-    'orders',
-    'users',
-    'catalog',
+    'catalog'
 ]
 
 MIDDLEWARE = [
@@ -104,6 +99,7 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
 
 
 # Internationalization
