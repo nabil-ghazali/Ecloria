@@ -1,0 +1,18 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello Ecloria</title>
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+</head>
+<body>
+    <h1 id="hello-text">Hello Ecloria!</h1>
+    <button id="change-style">Changer le style</button>
+
+    <script src="{% static 'js/script.js' %}"></script>
+
+{% block content %}    
+{% endblock %}
+</body>
+</html>

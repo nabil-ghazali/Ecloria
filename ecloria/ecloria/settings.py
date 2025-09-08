@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'home',
     'catalog',
     'orders',
-    'accounts'
+    'account'
 ]
 
 MIDDLEWARE = [
@@ -132,7 +132,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 # # Variable user (Shopper)
-AUTH_USER_MODEL = "accounts.Shopper"
+# AUTH_USER_MODEL = "accounts.Shopper"
 
 
 # CSS, JS, images
@@ -142,3 +142,7 @@ STATICFILES_DIRS = [BASE_DIR / 'static']
 # Fichiers uploadés (produits)
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
+
+# Pour que Django sache où rediriger après login/logout :
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
