@@ -13,17 +13,17 @@
 
 body {
     font-family: "Cinzel Decorative", serif;
-    /* reset default browser margin */
     margin: 0;
     padding: 0;
 }
 
-/* start  header */
+/* start header */
 header nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
     background-color: var(--grey);
+    padding: 0 20px;
 }
 
 .tabs {
@@ -54,7 +54,13 @@ nav a:hover {
     color: #c6a44d;
 }
 
-/* end header */
+/* Hamburger for mobile */
+.nav-toggle {
+    display: none;
+    font-size: 28px;
+    cursor: pointer;
+}
+
 /* start saerch & buy */
 .tobuy {
     display: flex;
@@ -64,7 +70,6 @@ nav a:hover {
     width: 100%;
     margin-left: -50px;
     gap: 10px;
-
 }
 
 .tobuy i {
@@ -76,11 +81,8 @@ nav a:hover {
 .tobuy i:hover {
     color: var(--golden);
     cursor: pointer;
-    /* move up 5px */
     transform: translateY(-5px);
 }
-
-/* end saerch & buy */
 
 /* start footer */
 footer .news {
@@ -91,18 +93,13 @@ footer .news {
 
 footer .news .newsletter {
     width: 200px;
-    /* original size */
     transform-origin: left;
-    /* grow from left */
     transform: scaleX(1);
-    /* initial scale */
     transition: transform 3s ease-in-out;
-    /* very slow and smooth */
 }
 
 footer .news .newsletter:focus {
     transform: scaleX(1.5);
-    /* double size */
 }
 
 footer .container {
@@ -114,11 +111,11 @@ footer .container {
     bottom: 0;
     width: 100%;
     height: 150px;
+    flex-wrap: wrap;
 }
 
 .container .categ ul {
     list-style: none;
-
 }
 
 .container .categ ul a {
@@ -132,7 +129,6 @@ footer .container {
 .categ ul li a:hover {
     color: var(--golden);
     font-size: 18px;
-    /* move up 5px */
     transform: translateY(-5px);
 }
 
@@ -149,8 +145,6 @@ footer .container {
     margin-bottom: 10px;
     color: var(--purple);
     font-size: 16px;
-
-
 }
 
 .name h6 .e {
@@ -158,7 +152,6 @@ footer .container {
     color: var(--golden);
     letter-spacing: 2px;
 }
-
 
 .social-icons i {
     font-size: 24px;
@@ -169,7 +162,6 @@ footer .container {
 .social-icons i:hover {
     color: var(--golden);
     cursor: pointer;
-    /* move up 5px */
     transform: translateY(-5px);
 }
 
@@ -193,7 +185,6 @@ footer .container {
     font-weight: bold;
     color: var(--purple);
     line-height: 1.6;
-    /* relative spacing */
 }
 
 .container .contact .cont {
@@ -206,4 +197,114 @@ footer .container {
     font-weight: bold;
 }
 
-/* end start footer */
+/* Responsive  */
+
+/* Medium screens (tablet) */
+@media (max-width: 1024px) {
+    nav ul {
+        gap: 10px;
+    }
+
+    nav ul a {
+        font-size: 14px;
+    }
+
+    .tabs {
+        margin-right: 20px;
+    }
+
+    footer .container {
+        display: flex;
+        flex-direction: row;
+        height: auto;
+        padding: 20px 0;
+        font-size: 10px;
+    }
+
+    /* footer .container .Mentions-légales {
+        display: none;
+    } */
+
+    .name h6 {
+        font-size: 10px;
+    }
+
+    .social-icons i {
+        font-size: 14px;
+    }
+
+
+}
+
+/* Small screens (mobile) */
+@media (max-width: 768px) {
+
+    /* hide original nav and show hamburger */
+    /* Small screens (mobile) */
+    @media (max-width: 768px) {
+        nav {
+            display: flex;
+            justify-content: space-between;
+            /* logo left, burger/menu right */
+            align-items: center;
+            padding: 0;
+        }
+
+        .tabs ul {
+            /* display: none; */
+            /* hide menu initially */
+            flex-direction: column;
+            background-color: #e6e6e6c9;
+            width: 100%;
+            position: absolute;
+            top: 85px;
+            left: 0;
+            padding: 10px 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out;
+            overflow: hidden;
+            max-height: 0;
+            opacity: 0;
+        }
+
+        .tabs ul.show {
+            display: flex;
+            max-height: 500px;
+            opacity: 1;
+        }
+
+        .tabs ul.show li:hover {
+            padding-left: 30px;
+            transition-duration: var(--main-duration);
+        }
+
+        .nav-toggle {
+            display: block;
+            font-size: 28px;
+            cursor: pointer;
+            color: var(--purple);
+            margin-left: 10px;
+        }
+    }
+
+
+    footer .container .categ {
+        /* hide category section */
+        display: none;
+    }
+
+    footer .container {
+        flex-direction: column;
+        height: auto;
+        padding: 10px 0;
+        gap: 10px;
+        position: absolute;
+        bottom: 0;
+    }
+
+    footer .news {
+        position: absolute;
+        bottom: 220px;
+        left: 10px;
+    }
+}
