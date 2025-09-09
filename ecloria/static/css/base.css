@@ -1,15 +1,209 @@
-#hello-text {
-    color: blue;
-    font-size: 40px;
-    text-align: center;
-    margin-top: 50px;
-    transition: all 0.5s;
+:root {
+    --golden: #c6a44d;
+    --purple: #3d2b4a;
+    --grey: #e6e6e6;
+    --main-duration: 0.5s;
 }
 
-button {
-    display: block;
-    margin: 20px auto;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
 }
+
+body {
+    font-family: "Cinzel Decorative", serif;
+    /* reset default browser margin */
+    margin: 0;
+    padding: 0;
+}
+
+/* start  header */
+header nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--grey);
+}
+
+.tabs {
+    display: flex;
+    justify-content: flex-start;
+    margin-right: 50px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    align-items: center;
+}
+
+nav ul a {
+    text-decoration: none;
+    color: var(--purple);
+    font-weight: 600;
+}
+
+.logo {
+    width: 150px;
+}
+
+nav a:hover {
+    color: #c6a44d;
+}
+
+/* end header */
+/* start saerch & buy */
+.tobuy {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    height: 100px;
+    width: 100%;
+    margin-left: -50px;
+    gap: 10px;
+
+}
+
+.tobuy i {
+    color: var(--purple);
+    font-size: 20px;
+    transition-duration: var(--main-duration);
+}
+
+.tobuy i:hover {
+    color: var(--golden);
+    cursor: pointer;
+    /* move up 5px */
+    transform: translateY(-5px);
+}
+
+/* end saerch & buy */
+
+/* start footer */
+footer .news {
+    position: absolute;
+    bottom: 155px;
+    left: 10px;
+}
+
+footer .news .newsletter {
+    width: 200px;
+    /* original size */
+    transform-origin: left;
+    /* grow from left */
+    transform: scaleX(1);
+    /* initial scale */
+    transition: transform 3s ease-in-out;
+    /* very slow and smooth */
+}
+
+footer .news .newsletter:focus {
+    transform: scaleX(1.5);
+    /* double size */
+}
+
+footer .container {
+    background-color: var(--grey);
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 150px;
+}
+
+.container .categ ul {
+    list-style: none;
+
+}
+
+.container .categ ul a {
+    text-decoration: none;
+    color: var(--purple);
+    margin-bottom: 5px;
+    transition-duration: var(--main-duration);
+    font-weight: bold;
+}
+
+.categ ul li a:hover {
+    color: var(--golden);
+    font-size: 18px;
+    /* move up 5px */
+    transform: translateY(-5px);
+}
+
+.container .social {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    justify-items: center;
+    text-align: center;
+}
+
+.name h6 {
+    margin: 0;
+    margin-bottom: 10px;
+    color: var(--purple);
+    font-size: 16px;
+
+
+}
+
+.name h6 .e {
+    font-size: 20px;
+    color: var(--golden);
+    letter-spacing: 2px;
+}
+
+
+.social-icons i {
+    font-size: 24px;
+    color: var(--purple);
+    transition-duration: var(--main-duration);
+}
+
+.social-icons i:hover {
+    color: var(--golden);
+    cursor: pointer;
+    /* move up 5px */
+    transform: translateY(-5px);
+}
+
+.container .Mentions-légales a {
+    text-decoration: none;
+    color: var(--purple);
+    transition-duration: var(--main-duration);
+    font-weight: bold;
+}
+
+.container .Mentions-légales {
+    text-align: center;
+}
+
+.container .Mentions-légales a:hover {
+    color: var(--golden);
+    font-size: larger;
+}
+
+.container .contact {
+    font-weight: bold;
+    color: var(--purple);
+    line-height: 1.6;
+    /* relative spacing */
+}
+
+.container .contact .cont {
+    font-weight: 200;
+}
+
+.container .contact .cont a {
+    text-decoration: none;
+    color: var(--golden);
+    font-weight: bold;
+}
+
+/* end start footer */
