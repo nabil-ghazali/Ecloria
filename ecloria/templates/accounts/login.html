@@ -1,27 +1,35 @@
 {% extends "base.html" %}
+{% load static %}
+
+
 {% block content %}
-<h2>Connexion</h2>
+<div class="card-container">
+    <div class="card"></div>
+      <h2>Connexion</h2>
+          {% if messages %}
+            <ul>
+              {% for message in messages %}
+                <li class="{{ message.tags }}">{{ message }}</li>
+              {% endfor %}
+            </ul>
+          {% endif %}
 
-{% if messages %}
-  <ul>
-    {% for message in messages %}
-      <li class="{{ message.tags }}">{{ message }}</li>
-    {% endfor %}
-  </ul>
-{% endif %}
+          <form method="post">
+              {% csrf_token %}
+              {{ form.as_p }}
+              <button type="submit">Se connecter</button>
+              <a href="{% url 'signup' %}">S'inscrire</a>
 
-<form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Se connecter</button>
-</form>
+          </form>
 
-{% if redirect %}
-<script>
-  setTimeout(function() {
-    window.location.href = "{% url 'home' %}";
-  }, 3000);
-</script>
-{% endif %}
 
+          {% if redirect %}
+            <script>
+              setTimeout(function() {
+                window.location.href = "{% url 'home' %}";
+              }, 3000);
+            </script>
+          {% endif %}
+    </div>
+</div>
 {% endblock %}

@@ -1,0 +1,67 @@
+/* Formulaire */
+.card-container {
+    width: 600px;       /* largeur du formulaire */
+    margin: 20px auto;  /* centrer horizontalement */
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* Chaque champ */
+form p {
+    margin-bottom: 15px;
+}
+
+/* Label */
+form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+/* Input */
+form input[type="text"],
+form input[type="password"],
+form input[type="email"] {
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid #aaa;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+/* Bouton */
+form button {
+    padding: 10px 15px;
+    background-color: #3d2b4a;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Effet au survol */
+form button:hover {
+    background-color: #c6a44d;
+}
+
+/* Messages flash */
+ul li.success {
+    color: green;
+}
+ul li.error {
+    color: red;
+}
+
+/* Lien s'inscrire */
+form a {
+    color: #3d2b4a;
+    text-decoration: none; /* enlève le soulignage */
+    font-weight: bold;     /* optionnel : mettre en gras */
+}
+
+form a:hover {
+    text-decoration: underline; /* remet un soulignage seulement au survol */
+}
