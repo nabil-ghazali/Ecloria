@@ -1,20 +1,108 @@
-{% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <title>Hello Ecloria</title>
-    <link rel="stylesheet" href="{% static 'css/base.css' %}">
-    <link rel="stylesheet" href="{% static 'css/login/login.css' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Discover timeless elegance with our handcrafted jewelry. 
+        Each piece is designed to reflect beauty, sophistication,
+        and individuality — perfect for every occasion">
+    <!-- google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&display=swap"
+        rel="stylesheet">
+    <!-- end google font -->
+    <!-- normalaize all elements  -->
+    <link rel="stylesheet" href="../static/css/normalize.css">
+    <!-- end normalaize all elements  -->
+    <!-- font awesome -->
+    <link rel="stylesheet" href="../static/css/all.min.css">
+    <!-- end font awesome -->
+    <!-- main css -->
+    <link rel="stylesheet" href="../static/css/base.css">
+    <!-- end main css -->
 
+    <title>Ecloria</title>
 </head>
+
 <body>
-    <h1 id="hello-text">Hello Ecloria!</h1>
-    <button id="change-style">Changer le style</button>
+    <!-- start header -->
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="../media/logo.png" alt="logo ecloria" class="logo">
+            </div>
 
-    <script src="{% static 'js/script.js' %}"></script>
+            <div class="tabs">
+                <div class="nav-toggle">&#9776;</div>
+                <ul>
+                    <li><a href="#">Bracelets</a></li>
+                    <li><a href="#">Colliers</a></li>
+                    <li><a href="#">Bagues</a></li>
+                    <li><a href="#">Connection</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <!-- end header -->
+    <!-- start search & buy section -->
+    <div class="tobuy">
+        <div class="search">
+            <input type="text" class="search-input" placeholder="Search...">
+            <i class="fa-solid fa-magnifying-glass" id="searchBtn"></i>
+        </div>
+        <div class="basket">
+            <i class="fa-solid fa-cart-shopping"></i>
+        </div>
+    </div>
 
-{% block content %}    
-{% endblock %}
+    <!-- news section  -->
+    <!-- end  news section  -->
+    <!-- end search & buy section -->
+    <footer>
+        <div class="news">
+            <label class="newsletter" for="Newsletter">subscribe :</label>
+            <input class="newsletter" type="email" id="Newsletter" placeholder="example @ email">
+        </div>
+        <div class="container">
+            <div class="categ">
+                <ul>
+                    <li><a href="#">Bracelets</a></li>
+                    <li><a href="#">Colliers</a></li>
+                    <li><a href="#">Bagues</a></li>
+                    <li><a href="#">Connection</a></li>
+                </ul>
+            </div>
+            <div class="social">
+                <div class="name">
+                    <h6><span class="e">E</span>cloria</h6>
+                </div>
+                <div class="social-icons">
+                    <i class="fa-brands fa-facebook"></i>
+                    <i class="fa-brands fa-linkedin"></i>
+                    <i class="fa-brands fa-youtube"></i>
+                    <i class="fa-brands fa-instagram"></i>
+                </div>
+            </div>
+            <div class="Mentions-légales"><a href="#">Mentions légales</a>
+                <p>&copy; 2025 <span class="copy-rights">ecloria</span> All Rights Reserved</p>
+            </div>
+            <div class="contact">
+                <p>Contact :<br>
+                    <span class="cont">salle Joêl Bizet<br>
+                        34170 Castelnau-le-Lez
+                        <br>
+                        <a href="mailto:ecloria_shop@outlook.fr?subject=Contact"
+                            class="link">ecloria_shop@outlook.fr</a>
+                    </span>
+                </p>
+            </div>
+        </div>
+
+    </footer>
+    <script src="../static/js/script.js"></script>
+
 </body>
+
 </html>
