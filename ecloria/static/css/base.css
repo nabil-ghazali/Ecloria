@@ -84,6 +84,65 @@ nav a:hover {
     transform: translateY(-5px);
 }
 
+.tobuy {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 100px;
+    width: 100%;
+    gap: 10px;
+    padding-right: 20px;
+}
+
+.tobuy i {
+    color: var(--purple);
+    font-size: 20px;
+    transition-duration: var(--main-duration);
+}
+
+.tobuy i:hover {
+    color: var(--golden);
+    transform: translateY(-5px);
+}
+
+.search {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+/* Input hidden initially */
+.search-input {
+    width: 0;
+    opacity: 0;
+    padding: 8px 10px 8px 10px;
+    border-radius: 20px;
+    border: 1px solid var(--purple);
+    outline: none;
+    background: #f1f1f1;
+    color: #333;
+    transition: width 0.4s ease, opacity 0.3s ease, padding 0.3s ease;
+    pointer-events: none;
+    /* prevents blocking icon when hidden */
+}
+
+/* Input visible */
+.search-input.show {
+    width: 250px;
+    opacity: 1;
+    pointer-events: auto;
+    padding: 8px 35px 8px 12px;
+    /* space for icon inside */
+}
+
+/* Icon inside input */
+.search i {
+    position: absolute;
+    right: 10px;
+    cursor: pointer;
+    z-index: 10;
+}
+
 /* start footer */
 footer .news {
     position: absolute;
@@ -241,49 +300,71 @@ footer .container {
 
     /* hide original nav and show hamburger */
     /* Small screens (mobile) */
+    nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 20px;
+        position: relative;
+    }
+
+    .nav-toggle {
+        font-size: 30px;
+        cursor: pointer;
+        display: none;
+        /* hide by default, only show on mobile */
+    }
+
+    /* Desktop menu */
+    .tabs ul {
+        z-index: 99;
+        display: flex;
+        gap: 20px;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    /* Mobile menu */
     @media (max-width: 768px) {
-        nav {
-            display: flex;
-            justify-content: space-between;
-            /* logo left, burger/menu right */
-            align-items: center;
-            padding: 0;
+        .nav-toggle {
+            display: block;
         }
 
         .tabs ul {
-            /* display: none; */
-            /* hide menu initially */
             flex-direction: column;
-            background-color: #e6e6e6c9;
-            width: 100%;
             position: absolute;
             top: 88px;
             left: 0;
+            width: 100%;
+            background-color: #e6e6e6c9;
             padding: 10px 0;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out;
-            overflow: hidden;
             max-height: 0;
             opacity: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease, opacity 0.5s ease;
         }
 
         .tabs ul.show {
-            display: flex;
             max-height: 500px;
+            /* enough to show all items */
             opacity: 1;
         }
 
-        .tabs ul.show li:hover {
-            padding-left: 30px;
-            transition-duration: var(--main-duration);
+        .tabs ul li {
+            padding: 10px 20px;
         }
 
-        .nav-toggle {
-            display: block;
-            font-size: 28px;
-            cursor: pointer;
-            color: var(--purple);
-            margin-left: 10px;
+        .tabs ul li a {
+            text-decoration: none;
+            color: #333;
+        }
+
+        .tabs ul li a:hover {
+            color: var(--golden);
+            padding-left: 30px;
+            transition-duration: var(--main-duration);
         }
     }
 
