@@ -34,17 +34,3 @@
 </div>
 {% endblock %}
 
-<!-- /* Afficher bouton dans la page home*/ -->
-{% extends 'base.html' %}
-
-{% block content %}
-  {% if user.is_authenticated %}
-    <!-- Affiche le nom de l'utilisateur connecté et le lien de déconnexion -->
-    <p>Bonjour {{ user.username }} !</p>
-    <a href="{% url 'logout' %}">Se déconnecter</a>
-  {% else %}
-    <!-- Affiche les liens de connexion et d'inscription si l'utilisateur n'est pas connecté -->
-    <a href="{% url 'login' %}">Se connecter</a>
-    <a href="{% url 'signup' %}">S'inscrire</a>
-  {% endif %}
-{% endblock %}
