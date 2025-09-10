@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,13 +15,16 @@
         rel="stylesheet">
     <!-- end google font -->
     <!-- normalaize all elements  -->
-    <link rel="stylesheet" href="../static/css/normalize.css">
+    <link rel="stylesheet" href="{% static 'css/normalize.css' %}"">
     <!-- end normalaize all elements  -->
     <!-- font awesome -->
-    <link rel="stylesheet" href="../static/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'css/all.min.css' %}">
     <!-- end font awesome -->
     <!-- main css -->
-    <link rel="stylesheet" href="../static/css/base.css">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <!-- end main css -->
+    <!-- main css -->
+    <link rel="stylesheet" href="{% static 'css/login/login.css' %}">
     <!-- end main css -->
 
     <title>Ecloria</title>
@@ -31,7 +35,9 @@
     <header>
         <nav>
             <div class="logo">
-                <img src="../media/logo.png" alt="logo ecloria" class="logo">
+                <a href="{% url 'home' %}">
+                    <img src="{{ MEDIA_URL }}logo.png" alt="logo ecloria" class="logo">
+                </a>
             </div>
 
             <div class="tabs">
@@ -48,8 +54,8 @@
                             <a href="{% url 'logout' %}">Se déconnecter</a>
                         {% else %}
                             <!-- Affiche les liens de connexion et d'inscription si l'utilisateur n'est pas connecté -->
-                            <a href="{% url 'login' %}">Se connecter</a>
-                            <a href="{% url 'signup' %}">S'inscrire</a>
+                            <a href="{% url 'login' %}">Connection</a>
+                            <a href="{% url 'signup' %}">Inscription</a>
                         {% endif %}
                     </li>
                 </ul>
@@ -69,6 +75,9 @@
     </div>
 
     <!-- news section  -->
+    {% block content %}
+
+    {% endblock %}
     <!-- end  news section  -->
     <!-- end search & buy section -->
     <footer>
@@ -112,7 +121,7 @@
         </div>
 
     </footer>
-    <script src="../static/js/script.js"></script>
+    <script src="{% static 'js/script.js' %}"></script>
 
 </body>
 

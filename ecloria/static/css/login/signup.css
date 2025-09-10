@@ -1,12 +1,14 @@
 /* Formulaire */
 .card-container {
-    width: 600px;       /* largeur du formulaire */
+    max-width: 400px; /* limite la largeur du formulaire */
     margin: 20px auto;  /* centrer horizontalement */
     padding: 20px;
     border: 1px solid #ccc;
     border-radius: 10px;
     background-color: #f9f9f9;
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    min-height: calc(100vh - 150px); /* prend toute la hauteur moins la hauteur du footer */
+
 }
 
 /* Chaque champ */

@@ -166,7 +166,7 @@ footer .container {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    position: absolute;
+    position: fixed; /*  changement de absolute par fixed pour forcer footer a resté en bas */
     bottom: 0;
     width: 100%;
     height: 150px;
@@ -256,9 +256,9 @@ footer .container {
     font-weight: bold;
 }
 
-/* Responsive  */
+/* ------------------------------------------------ Responsive ----------------------------------- */
 
-/* Medium screens (tablet) */
+/* Medium screens (tablet)------------------------------ */
 @media (max-width: 1024px) {
     nav ul {
         gap: 10px;
@@ -278,6 +278,17 @@ footer .container {
         height: auto;
         padding: 20px 0;
         font-size: 10px;
+        footer .container {
+        position: fixed; /*  changement de absolute par fixed pour forcer footer a resté en bas */
+
+        }
+
+    }
+
+    footer .news {
+        position: fixed;
+        bottom: 130px;
+        left: 10px;
     }
 
     /* footer .container .Mentions-légales {
@@ -295,7 +306,7 @@ footer .container {
 
 }
 
-/* Small screens (mobile) */
+/* Small screens (mobile) --------------------------------- */
 @media (max-width: 768px) {
 
     /* hide original nav and show hamburger */
@@ -379,12 +390,12 @@ footer .container {
         height: auto;
         padding: 10px 0;
         gap: 10px;
-        position: absolute;
+        position: fixed;
         bottom: 0;
     }
 
     footer .news {
-        position: absolute;
+        position: fixed;
         bottom: 220px;
         left: 10px;
     }
