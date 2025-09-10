@@ -25,7 +25,7 @@ def signup_view(request):
         if form.is_valid():
             user = form.save()  # Création de l'utilisateur dans la base
             messages.success(request, "Inscription réussie, bienvenue !")
-            # On peut décider ici si on connecte automatiquement ou non
+            # On peut décider ici si on connecte automatiquement ou non - login(request, user)
             return render(
                 request,
                 "accounts/signup.html",
