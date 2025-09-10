@@ -1,0 +1,11 @@
+ERROR: Directory 'D:\\Outils\\Poetry' is not installable. Neither 'setup.py' nor 'pyproject.toml' found.
+
+Traceback:
+
+  File "<stdin>", line 937, in main
+  File "<stdin>", line 574, in run
+  File "<stdin>", line 596, in install
+  File "<stdin>", line 699, in install_poetry
+  File "<stdin>", line 389, in pip
+  File "<stdin>", line 386, in python
+  File "<stdin>", line 379, in run
