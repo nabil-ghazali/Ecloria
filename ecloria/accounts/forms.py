@@ -6,8 +6,8 @@ from django.contrib.auth.forms import UserCreationForm
 class CustomUserCreationForm(UserCreationForm):
     # Champs supplémentaires
     email = forms.EmailField(required=True, label="Email")
-    first_name = forms.CharField(max_length=30, required=False, label="Prénom")
-    last_name = forms.CharField(max_length=30, required=False, label="Nom de famille")
+    first_name = forms.CharField(max_length=30, required=True, label="Prénom")
+    last_name = forms.CharField(max_length=30, required=True, label="Nom de famille")
 
     class Meta:
         model = User
