@@ -35,10 +35,7 @@ urlpatterns = [
     path('', include('home.urls')),  # page d'accueil
     path('', include('catalog.urls')),  # pas besoin de répéter /category/ ici
 
-]
-
-if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 
  
