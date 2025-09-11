@@ -6,15 +6,12 @@
       <strong>{{ product.name }}</strong> - {{ product.price }} €
       {% if product.thumbnail %}
         <br>
-        <a href="{% url 'product_detail' product.id %}"></a>
-        <img src="{{ product.thumbnail.url }}" alt="{{ product.name }}" style="max-width: 300px;">
+        <a href="{% url 'product_detail' product.id %}">
+          <img src="{{ product.thumbnail.url }}" alt="{{ product.name }}" style="max-width: 200px;">
+        </a>
       {% endif %}
     </li>
   {% empty %}
     <li>Aucun produit dans cette catégorie.</li>
   {% endfor %}
 </ul>
-
-
-
-
