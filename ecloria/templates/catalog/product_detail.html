@@ -1,1 +1,8 @@
-<h1>Hellooo tu es dans categories</h1>
+
+<h1>{{ product.name }}</h1>
+{% if product.thumbnail %}
+  <img src="{{ product.thumbnail.url }}" alt="{{ product.name }}" style="max-width: 400px;">
+{% endif %}
+<p><strong>Prix :</strong> {{ product.price }} €</p>
+<p>{{ product.description }}</p>
+<a href="{% url 'product_list' product.category.id %}">Retour à la liste des produits</a>

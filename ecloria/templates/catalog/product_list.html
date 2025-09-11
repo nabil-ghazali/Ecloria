@@ -1,0 +1,20 @@
+
+<h1>Produits de la catégorie : {{ category.names }}</h1>
+<ul>
+  {% for product in products %}
+    <li>
+      <strong>{{ product.name }}</strong> - {{ product.price }} €
+      {% if product.thumbnail %}
+        <br>
+        <a href="{% url 'product_detail' product.id %}"></a>
+        <img src="{{ product.thumbnail.url }}" alt="{{ product.name }}" style="max-width: 300px;">
+      {% endif %}
+    </li>
+  {% empty %}
+    <li>Aucun produit dans cette catégorie.</li>
+  {% endfor %}
+</ul>
+
+
+
+

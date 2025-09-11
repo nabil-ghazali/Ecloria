@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% if catalogues %}
+  {% for catalogue in catalogues %}
+    <h2>{{ catalogue.names }}</h2>
+    {% if catalogue.thumbnail %}
+      <img src="{{ catalogue.thumbnail.url }}" alt="{{ catalogue.names }}" style="max-width: 400px;">
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
+{% if categories %}
+  <ul>
+    {% for category in categories %}
+      <li>
+        <a href="{% url 'product_list' category.id %}">{{ category.names }}</a>    
+      </li>
+    {% endfor %}
+  </ul>
+{% else %}
+  <p>Aucune catégorie disponible.</p>
+{% endif %}
+
+{% endblock %}
+
+

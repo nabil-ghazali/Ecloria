@@ -6,9 +6,11 @@ __pycache__/
 # Environnement
 .venv/
 .env
-*.venv/ #* Le caractère * est un joker qui correspond à n’importe quel nom de fichier ou dossier.
-        #* Exemple : *.venv correspond à tous les fichiers ou dossiers qui se terminent par .venv.
-ecloria-PprtxQzR-py3.13/ #*pillow
+# Le caractère * est un joker qui correspond à n’importe quel nom de fichier ou dossier.
+# Exemple : *.venv correspond à tous les fichiers ou dossiers qui se terminent par .venv.
+*.venv/
+ecloria-PprtxQzR-py3.13/ 
+#*pillow
 
 # # Django
 db.sqlite3
