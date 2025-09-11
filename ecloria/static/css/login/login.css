@@ -81,7 +81,7 @@ form a:hover {
         font-size: 1rem;
     }
 }
-
+/* -------------------------------------------------- Responsive ----------------------------------------------------- */
 /* Mobiles */
 @media (max-width: 480px) {
     .card-container {

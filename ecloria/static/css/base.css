@@ -17,13 +17,26 @@ body {
     padding: 0;
 }
 
-/* start header */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+/* --------------------------- start header ------------------------------ */
 header nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
     background-color: var(--grey);
     padding: 0 20px;
+}
+
+/* header en haut */
+header {
+    flex-shrink: 0;
 }
 
 .tabs {
@@ -143,10 +156,40 @@ nav a:hover {
     z-index: 10;
 }
 
-/* start footer */
+
+/* --------------------------------------- main --------------------------------------------- */
+
+/* main occupe l’espace entre header et footer */
+main {
+    flex: 1;
+    display: flex;
+    justify-content: center;   /* centre horizontalement le contenu */
+    align-items: flex-start;   /* commence juste sous le header */
+    padding: 100px 20px 160px; /* top=100px pour laisser place au header, 
+                                  bottom=160px pour laisser place au footer */
+    box-sizing: border-box;
+    overflow-y: auto;          /* permet le scroll interne */
+}
+
+
+                    /* ---------------------- dans le main ----------------------*/
+main .containe {
+    width: 100%;
+    max-width: 500px; /* limite la largeur du formulaire*/
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+
+                    /* ---------------------- dans le main ----------------------*/
+
+
+/* --------------------------------- start footer ------------------------------------------ */
 footer .news {
     position: absolute;
-    bottom: 155px;
+    bottom: 140px;
     left: 10px;
 }
 
@@ -169,7 +212,7 @@ footer .container {
     position: fixed; /*  changement de absolute par fixed pour forcer footer a resté en bas */
     bottom: 0;
     width: 100%;
-    height: 150px;
+    height: 130px;
     flex-wrap: wrap;
 }
 
@@ -254,6 +297,12 @@ footer .container {
     text-decoration: none;
     color: var(--golden);
     font-weight: bold;
+}
+
+/* footer en bas */
+footer {
+    flex-shrink: 0;
+    background-color: var(--grey);
 }
 
 /* ------------------------------------------------ Responsive ----------------------------------- */

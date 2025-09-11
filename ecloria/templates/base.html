@@ -36,7 +36,7 @@
         <nav>
             <div class="logo">
                 <a href="{% url 'home' %}">
-                    <img src="{{ MEDIA_URL }}logo.png" alt="logo ecloria" class="logo">
+                    <img src="{% static 'img/logo.png'}" alt="logo ecloria" class="logo">
                 </a>
             </div>
 
@@ -73,13 +73,14 @@
             <i class="fa-solid fa-cart-shopping"></i>
         </div>
     </div>
-
+    <main>
     <!-- news section  -->
-    {% block content %}
-
-    {% endblock %}
+        <!-- <div class="container"> -->
+            {% block content %}{% endblock %}
+        <!-- </div> -->
     <!-- end  news section  -->
     <!-- end search & buy section -->
+     </main>
     <footer>
         <div class="news">
             <label class="newsletter" for="Newsletter">subscribe :</label>

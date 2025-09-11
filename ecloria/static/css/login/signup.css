@@ -1,6 +1,10 @@
 /* Formulaire */
+body{
+    height:100dvh;
+}
 .card-container {
     max-width: 400px; /* limite la largeur du formulaire */
+    height: 100vh;
     margin: 20px auto;  /* centrer horizontalement */
     padding: 20px;
     border: 1px solid #ccc;
@@ -66,4 +70,36 @@ form a {
 
 form a:hover {
     text-decoration: underline; /* remet un soulignage seulement au survol */
+}
+
+
+/* -------------------------------------------------- Responsive ----------------------------------------------------- */
+/* Mobiles */
+@media (max-width: 480px) {
+    .card-container {
+        width: 95%;
+        margin: 10px auto;
+        padding: 10px;
+    }
+
+    h2 {
+        font-size: 1.2rem;
+        text-align: center;
+    }
+
+    form input[type="text"],
+    form input[type="password"],
+    form input[type="email"] {
+        padding: 10px;
+        font-size: 0.9rem;
+    }
+
+    form button {
+        padding: 12px;
+        font-size: 1rem;
+    }
+
+    form a {
+        font-size: 0.9rem;
+    }
 }
