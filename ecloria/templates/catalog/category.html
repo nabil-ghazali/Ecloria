@@ -1,29 +1,25 @@
-<!-- {% extends 'base.html' %}
+{% extends 'base.html' %}
 
 {% block content %}
-
-<div class="card-container">
-    <div class="card">
-{% if catalogues %}
-  {% for catalogue in catalogues %}
-    <h2>{{ catalogue.names }}</h2>
-    {% if catalogue.thumbnail %}
-      <img src="{{ catalogue.thumbnail.url }}" alt="{{ catalogue.names }}" style="max-width: 400px;">
+<div>
+    {% if categories %}
+        {% for category in categories %}
+            <div>
+                <h2>{{ category.names }}</h2>
+                {% if category.thumbnail %}
+                    <a href="{% url 'product_list' category.id %}">
+                        <img src="{{ category.thumbnail.url }}" alt="{{ category.names }}" style="max-width: 400px;">
+                    </a>
+                {% endif %}
+            </div>
+        {% endfor %}
+    {% else %}
+        <p>Aucune catégorie disponible.</p>
     {% endif %}
-  {% endfor %}
-{% endif %}
-
-{% if categories %}
-  <ul>
-    {% for category in categories %}
-      <li>
-        <a href="{% url 'product_list' category.id %}">{{ category.names }}</a>    
-      </li>
-    {% endfor %}
-  </ul>
-{% else %}
-  <p>Aucune catégorie disponible.</p>
-{% endif %}
-    </div>
 </div>
-{% endblock %} -->
+{% endblock %}
+
+
+
+
+
