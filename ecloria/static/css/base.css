@@ -97,15 +97,6 @@ nav a:hover {
     transform: translateY(-5px);
 }
 
-.tobuy {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    height: 100px;
-    width: 100%;
-    gap: 10px;
-    padding-right: 20px;
-}
 
 .tobuy i {
     color: var(--purple);
@@ -165,7 +156,7 @@ main {
     display: flex;
     justify-content: center;   /* centre horizontalement le contenu */
     align-items: flex-start;   /* commence juste sous le header */
-    padding: 100px 20px 160px; /* top=100px pour laisser place au header, 
+    padding: 0px 20px 160px; /* top=100px pour laisser place au header, 
                                   bottom=160px pour laisser place au footer */
     box-sizing: border-box;
     overflow-y: auto;          /* permet le scroll interne */
@@ -426,6 +417,7 @@ footer {
             padding-left: 30px;
             transition-duration: var(--main-duration);
         }
+        
     }
 
 

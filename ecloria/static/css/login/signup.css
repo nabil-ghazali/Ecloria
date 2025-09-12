@@ -1,30 +1,36 @@
-/* Formulaire */
-body{
-    height:100dvh;
-}
+/* Container principal */
 .card-container {
-    max-width: 400px; /* limite la largeur du formulaire */
-    height: 100vh;
-    margin: 20px auto;  /* centrer horizontalement */
-    padding: 20px;
+    width: 600px;
+    max-width: 95%;  /* responsive */
+    margin: 40px auto;
+    padding: 25px;
     border: 1px solid #ccc;
-    border-radius: 10px;
+    border-radius: 12px;
     background-color: #f9f9f9;
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    min-height: calc(100vh - 150px); /* prend toute la hauteur moins la hauteur du footer */
+}
 
+/* Titre */
+.card-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 26px;
+    color: #3d2b4a;
 }
 
 /* Chaque champ */
 form p {
-    margin-bottom: 15px;
+    margin-bottom: 18px;
 }
 
 /* Label */
 form label {
     display: block;
-    margin-bottom: 5px;
+    margin-bottom: 6px;
     font-weight: bold;
+    font-size: 14px;
+    color: #333;
 }
 
 /* Input */
@@ -32,23 +38,36 @@ form input[type="text"],
 form input[type="password"],
 form input[type="email"] {
     width: 100%;
-    padding: 8px 12px;
+    padding: 10px 12px;
     border: 1px solid #aaa;
-    border-radius: 5px;
+    border-radius: 6px;
     box-sizing: border-box;
+    font-size: 15px;
+    transition: border-color 0.2s;
+}
+
+/* Effet focus */
+form input:focus {
+    border-color: #3d2b4a;
+    outline: none;
 }
 
 /* Bouton */
 form button {
-    padding: 10px 15px;
+    display: block;
+    width: 100%;
+    padding: 12px;
     background-color: #3d2b4a;
     color: white;
+    font-size: 16px;
     border: none;
-    border-radius: 5px;
+    border-radius: 6px;
     cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s;
 }
 
-/* Effet au survol */
+/* Hover bouton */
 form button:hover {
     background-color: #c6a44d;
 }
@@ -56,50 +75,24 @@ form button:hover {
 /* Messages flash */
 ul li.success {
     color: green;
+    font-size: 14px;
+    margin-bottom: 8px;
 }
 ul li.error {
     color: red;
+    font-size: 14px;
+    margin-bottom: 8px;
 }
 
-/* Lien s'inscrire */
-form a {
-    color: #3d2b4a;
-    text-decoration: none; /* enlève le soulignage */
-    font-weight: bold;     /* optionnel : mettre en gras */
-}
-
-form a:hover {
-    text-decoration: underline; /* remet un soulignage seulement au survol */
-}
-
-
-/* -------------------------------------------------- Responsive ----------------------------------------------------- */
-/* Mobiles */
-@media (max-width: 480px) {
+/* Responsive */
+@media (max-width: 768px) {
     .card-container {
-        width: 95%;
-        margin: 10px auto;
-        padding: 10px;
+        width: 90%;
+        height: 100%;
+        padding: 15px;
     }
-
-    h2 {
-        font-size: 1.2rem;
-        text-align: center;
-    }
-
-    form input[type="text"],
-    form input[type="password"],
-    form input[type="email"] {
-        padding: 10px;
-        font-size: 0.9rem;
-    }
-
     form button {
-        padding: 12px;
-        font-size: 1rem;
-    }
-
-    form a {
-        font-size: 0.9rem;
+        font-size: 14px;
+        padding: 10px;
     }
 }
