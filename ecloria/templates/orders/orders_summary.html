@@ -1,12 +1,12 @@
 {% extends 'base.html' %}
+{% load static %}
 {% load cart_extras %}
 
-{% load static %}
 {% block content %}
 <div class="order-summary-container">
-    <h1>Votre panier</h1>
+    <h2>Votre panier</h2>
 
-    {% if cart.orders.all %}
+    {% if orders %}
         <table class="order-summary-table">
             <thead>
                 <tr>
@@ -17,7 +17,7 @@
                 </tr>
             </thead>
             <tbody>
-                {% for order in cart.orders.all %}
+                {% for order in orders %}
                 <tr>
                     <td>{{ order.product.name }}</td>
                     <td>{{ order.product.price }} €</td>
@@ -29,16 +29,20 @@
         </table>
 
         <p class="total">
-            Total : {{ cart.orders.all|calc_cart_total }} €
+            Total : {{ orders|calc_cart_total }} €
         </p>
 
-        <form action="{% url 'checkout' %}" method="post">
-            {% csrf_token %}
-            <button type="submit" class="btn-checkout">Passer la commande</button>
-        </form>
+
+        <a href="{% url 'home' %}" class="btn-return">← Continuer vos achats</a>
 
     {% else %}
         <p>Votre panier est vide.</p>
+        <a href="{% url 'home' %}" class="btn-return">← Retour au catalogue</a>
     {% endif %}
 </div>
 {% endblock %}
+
+        <!-- <form action="{% url 'checkout' %}" method="post">
+            {% csrf_token %}
+            <button type="submit" class="btn-checkout">Passer la commande</button>
+        </form> -->

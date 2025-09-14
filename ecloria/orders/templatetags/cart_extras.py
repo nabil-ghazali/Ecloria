@@ -1,14 +1,17 @@
+# orders/templatetags/cart_extras.py
 from django import template
 
 register = template.Library()
 
 @register.filter
 def multiply(value, arg):
-    return value * arg
+    """Multiplie deux valeurs"""
+    try:
+        return float(value) * int(arg)
+    except (ValueError, TypeError):
+        return ''
 
 @register.filter
-def cart_total(orders):
-    total = 0
-    for order in orders:
-        total += order.quantity * order.product.price
-    return total
+def calc_cart_total(orders):
+    """Calcule le total du panier"""
+    return sum(order.product.price * order.quantity for order in orders)

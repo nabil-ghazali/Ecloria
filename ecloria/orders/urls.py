@@ -5,6 +5,8 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('add-to-cart/<slug:slug>/', views.add_to_cart, name="add-to-cart"),
+    path('cart/', views.cart, name="cart"),
+    
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 

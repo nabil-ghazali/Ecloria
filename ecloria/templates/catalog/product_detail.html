@@ -11,13 +11,13 @@
 
         <p><strong>Prix :</strong> {{ product.price }} €</p>
         <p>{{ product.description }}</p>
-
+    {% if user.is_authenticated %}    
         <!-- Bouton Ajouter au panier -->
         <form action="{% url 'add-to-cart' product.slug %}" method="post">
             {% csrf_token %}
             <button type="submit" class="btn-add-cart">Ajouter au panier</button>
         </form>
-
+    {% endif %}
         <a href="{% url 'product_list' product.category.id %}">Retour à la liste des produits</a>
         <!-- Bouton Ajouter au panier -->
 
