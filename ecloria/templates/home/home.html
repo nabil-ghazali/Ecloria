@@ -22,28 +22,8 @@
     </section>
 
     <!-- SECTION CATEGORIES -->
-    <section class="categories">
-        <h2 class="categories-header">Nos Catégories</h2>
-        <div class="category-slider">
-            <div class="category-track">
-                {% if categories %}
-                {% for category in categories %}
-                <div class="category-card">
-                    <a href="{% url 'product_list' category.id %}">
-                        {% if category.thumbnail %}
-                        <img src="{{ category.thumbnail.url }}" alt="{{ category.names }}">
-                        {% endif %}
-                        <h3 class="categories-name">{{ category.names }}</h3>
-                    </a>
-                </div>
-                {% endfor %}
-                {% else %}
-                <p>Aucune catégorie disponible.</p>
-                {% endif %}
-            </div>
-        </div>
-    </section>
-
-
-
-    {% endblock %}
+    <div class="see-all-btn">
+        <a class="show-all" href="{% url 'all_categories' %}">Voir toutes les catégories</a>
+    </div>
+</div>
+{% endblock %}

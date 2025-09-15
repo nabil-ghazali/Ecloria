@@ -19,6 +19,5 @@ searchBtn.addEventListener("click", () => {
     }
 });
 
-// slider 
-
+// slider /////////////////////////////////////////////////////
 

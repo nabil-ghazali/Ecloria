@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="all-categories">
+    <h2 class="categories-header">Toutes les catégories</h2>
+
+    <div class="slider-container">
+        <!-- prev button -->
+        <button class="slider-btn prev" aria-label="Previous">&lsaquo;</button>
+
+        <!-- visible viewport -->
+        <div class="slider-viewport">
+            <div class="slider-track">
+                {% if categories %}
+                {% for category in categories %}
+                <div class="category-card">
+                    <a href="{% url 'product_list' category.id %}">
+                        {% if category.thumbnail %}
+                        <img src="{{ category.thumbnail.url }}" alt="{{ category.names }}">
+                        {% endif %}
+                        <h3>{{ category.names }}</h3>
+                    </a>
+                </div>
+                {% endfor %}
+                {% else %}
+                <p>Aucune catégorie disponible.</p>
+                {% endif %}
+            </div>
+        </div>
+
+        <!-- next button -->
+        <button class="slider-btn next" aria-label="Next">&rsaquo;</button>
+    </div>
+</section>
+{% endblock %}

@@ -12,9 +12,7 @@ main {
     height: 100dvh;
 }
 
-img {
-    width: 300px;
-}
+
 
 .categories {
     display: flex;
@@ -54,6 +52,16 @@ h1.top-page-header {
     padding-bottom: 220px;
 }
 
+@media (max-width: 768px) {
+    h1.top-page-header {
+        display: flex;
+        flex-direction: column;
+        font-size: 1.5em;
+        transform: translateY(60px);
+        transition: translate 0.4s;
+    }
+}
+
 h1.top-page-header span.page-main-title {
     font-size: 3em;
     color: var(--golden);
@@ -66,6 +74,7 @@ p.top-page-parag {
     font-size: 2em;
     color: var(--purple);
     text-shadow: 0 0 1px var(--purple), 0 0 4px var(--purple);
+    padding-top: 120px;
 }
 
 h2.about-headr {
@@ -85,51 +94,50 @@ p.about-parag {
     color: var(--purple);
 }
 
-/* slider ------------------------------------##################### */
+@media (max-width: 767px) {
+    h2.about-headr {
+        font-size: 24px;
+    }
 
-.categories-header {
-    text-align: center;
-    font-size: 2.5rem;
-    margin-bottom: 30px;
-    color: #333;
+    p.about-parag {
+        padding: 0 5px;
+        margin-bottom: 0;
+    }
+}
+
+.see-all-btn {
+    margin: 30px 0;
+}
+
+
+a.show-all {
+    display: inline-block;
+    padding: 14px 32px;
+    font-size: 18px;
     font-weight: bold;
+    color: #fff;
+    background: linear-gradient(9deg, var(--golden), var(--purple));
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.4s ease;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
 }
 
-.category-slider {
-    overflow: hidden;
-    padding: 20px 0;
-    width: 100%;
+/* hover effect */
+a.show-all:hover {
+    transform: translateY(-4px) scale(1.2);
+    background: linear-gradient(45deg, #c59e03, #ffe000);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.5);
 }
 
-.category-track {
-    display: flex;
-    gap: 30px;
+/* small glowing animation */
+a.show-all:focus,
+a.show-all:active {
+    outline: none;
+    box-shadow: 0 0 20px #ff6a00, 0 0 40px #ee0979;
 }
 
-.category-card {
-    flex: 0 0 250px;
-    /* bigger width */
-    background: #fff;
-    border-radius: 15px;
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
-    text-align: center;
-    transition: transform 0.3s, box-shadow 0.3s;
-}
 
-.category-card img {
-    width: 100%;
-    height: 180px;
-    object-fit: cover;
-    border-radius: 15px 15px 0 0;
-}
-
-.category-card h3 {
-    font-size: 1.2rem;
-    color: #333;
-    padding: 10px 0;
-}
-
-.category-card:hover {
-    transform: scale(1.1);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
-}
+/* slider ------------------------------ categories !!!!!!!!!!!!!!!!! ------##################### */
