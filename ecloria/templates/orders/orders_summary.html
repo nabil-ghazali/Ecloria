@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load cart_extras %}
+
+{% block content %}
+<div class="order-summary-container">
+    <h2>Votre panier</h2>
+
+    {% if orders %}
+        <table class="order-summary-table">
+            <thead>
+                <tr>
+                    <th>Produit</th>
+                    <th>Prix Unitaire</th>
+                    <th>Quantité</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for order in orders %}
+                <tr>
+                    <td>{{ order.product.name }}</td>
+                    <td>{{ order.product.price }} €</td>
+                    <td>{{ order.quantity }}</td>
+                    <td>{{ order.product.price|multiply:order.quantity }} €</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <p class="total">
+            Total : {{ orders|calc_cart_total }} €
+        </p>
+
+
+        <a href="{% url 'home' %}" class="btn-return">← Continuer vos achats</a>
+
+    {% else %}
+        <p>Votre panier est vide.</p>
+        <a href="{% url 'home' %}" class="btn-return">← Retour au catalogue</a>
+    {% endif %}
+</div>
+{% endblock %}
+
+        <!-- <form action="{% url 'checkout' %}" method="post">
+            {% csrf_token %}
+            <button type="submit" class="btn-checkout">Passer la commande</button>
+        </form> -->
