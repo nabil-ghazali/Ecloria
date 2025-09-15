@@ -3,42 +3,43 @@
 {% block content %}
 
 <!-- SECTION HERO -->
-<section class="top-page">
-    <div>
-        <h1>La Collection Ecloria</h1>
-        <p>L’élégance intemporelle au service de votre beauté</p>
-    </div>
-</section>
+<div class="home-page-content">
+    <section class="top-page">
+        <div>
+            <h1>La Collection Ecloria</h1>
+            <p>L’élégance intemporelle au service de votre beauté</p>
+        </div>
+    </section>
 
-<!-- SECTION A PROPOS -->
-<section class="about">
-    <h2>À propos d’Ecloria</h2>
-    <p>
-        Depuis sa création, Ecloria s’engage à offrir des bijoux uniques alliant 
-        élégance, authenticité et savoir-faire artisanal. 
-        Chaque pièce est pensée pour sublimer votre style.
-    </p>
-</section>
+    <!-- SECTION A PROPOS -->
+    <section class="about">
+        <h2>À propos d’Ecloria</h2>
+        <p>
+            Depuis sa création, Ecloria s’engage à offrir des bijoux uniques alliant
+            élégance, authenticité et savoir-faire artisanal.
+            Chaque pièce est pensée pour sublimer votre style.
+        </p>
+    </section>
 
-<!-- SECTION CATEGORIES -->
-<section class="categories">
-    <h2>Nos Catégories</h2>
-    <div class="category-grid">
-        {% if categories %}
+    <!-- SECTION CATEGORIES -->
+    <section class="categories">
+        <h2>Nos Catégories</h2>
+        <div class="category-grid">
+            {% if categories %}
             {% for category in categories %}
-                <div class="category-card">
-                    <a href="{% url 'product_list' category.id %}">
-                        {% if category.thumbnail %}
-                            <img src="{{ category.thumbnail.url }}" alt="{{ category.names }}">
-                        {% endif %}
-                        <h3>{{ category.names }}</h3>
-                    </a>
-                </div>
+            <div class="category-card">
+                <a href="{% url 'product_list' category.id %}">
+                    {% if category.thumbnail %}
+                    <img src="{{ category.thumbnail.url }}" alt="{{ category.names }}">
+                    {% endif %}
+                    <h3>{{ category.names }}</h3>
+                </a>
+            </div>
             {% endfor %}
-        {% else %}
+            {% else %}
             <p>Aucune catégorie disponible.</p>
-        {% endif %}
-    </div>
-</section>
+            {% endif %}
+        </div>
+    </section>
+</div>
 {% endblock %}
-
