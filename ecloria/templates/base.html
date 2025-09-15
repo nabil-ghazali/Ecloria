@@ -1,4 +1,5 @@
 {% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,7 +16,7 @@
         rel="stylesheet">
     <!-- end google font -->
     <!-- normalaize all elements  -->
-    <link rel="stylesheet" href="{% static 'css/normalize.css' %}"">
+    <link rel="stylesheet" href="{% static 'css/normalize.css' %}">
     <!-- end normalaize all elements  -->
     <!-- font awesome -->
     <link rel="stylesheet" href="{% static 'css/all.min.css' %}">
@@ -36,14 +37,14 @@
         <nav>
             <div class="logo">
                 <a href="{% url 'home' %}">
-                    <img src="{% static 'img/logo.png'}" alt="logo ecloria" class="logo">
+                    <img src="{% static 'img/logo.png' %}" alt="logo ecloria" class="logo">
                 </a>
             </div>
 
             <div class="tabs">
                 <div class="nav-toggle">&#9776;</div>
                 <ul>
-                    <li><a href="{% url 'category' %}">Bracelets</a></li>
+                    <li><a href="#">Bracelets</a></li>
                     <li><a href="#">Colliers</a></li>
                     <li><a href="#">Bagues</a></li>
                     <!-- Bouton Connexion / Déconnexion dynamique -->
@@ -55,7 +56,6 @@
                         {% else %}
                             <!-- Affiche les liens de connexion et d'inscription si l'utilisateur n'est pas connecté -->
                             <a href="{% url 'login' %}">Connection</a>
-                            <a href="{% url 'signup' %}">Inscription</a>
                         {% endif %}
                     </li>
                 </ul>
@@ -80,7 +80,7 @@
         <!-- </div> -->
     <!-- end  news section  -->
     <!-- end search & buy section -->
-     </main>
+    </main>
     <footer>
         <div class="news">
             <label class="newsletter" for="Newsletter">subscribe :</label>
