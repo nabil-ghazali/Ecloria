@@ -96,11 +96,13 @@
         </div>
         <div class="container">
             <div class="categ">
-                <ul>
-                    <li><a href="#">Bracelets</a></li>
-                    <li><a href="#">Colliers</a></li>
-                    <li><a href="#">Bagues</a></li>
-                    <li><a href="#">Connection</a></li>
+                 <ul>
+                <!-- Lien des categories dans le navigateur -->
+                {% for category in categories %}
+                    <li>
+                        <a href="{% url 'product_list' category.id %}">{{ category.names }}</a>  
+                    </li>
+                {% endfor %}
                 </ul>
             </div>
             <div class="social">
