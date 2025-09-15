@@ -19,3 +19,6 @@ searchBtn.addEventListener("click", () => {
     }
 });
 
+// slider 
+
+
