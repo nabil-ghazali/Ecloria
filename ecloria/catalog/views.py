@@ -1,7 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from catalog.models import Category, Product
 
-
 def home(request):
 
     catalogues = Category.objects.all()

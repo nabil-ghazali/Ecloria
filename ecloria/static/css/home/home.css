@@ -1,0 +1,107 @@
+
+
+/* ==== HERO SECTION ==== */
+.top-page {
+    background: url("/static/img/BAGUE.jpg") no-repeat center center/cover;
+    height: 90vh; /* prend presque tout l'écran */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    color: white;
+    padding: 0 20px;
+}
+
+.top-page::after {
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.4); /* voile sombre */
+}
+
+.top-page div {
+    position: relative; /* évite que le texte passe sous l’overlay */
+    z-index: 2;
+}
+
+.top-page h1 {
+    font-size: 3rem;
+    margin-bottom: 15px;
+}
+
+.top-page p {
+    font-size: 1.3rem;
+}
+
+/* ==== SECTION A PROPOS ==== */
+.about {
+    background: #f8f8f8;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.about h2 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+
+.about p {
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+/* ==== SECTION CATEGORIES ==== */
+.categories {
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.categories h2 {
+    font-size: 2rem;
+    margin-bottom: 30px;
+}
+
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.category-card {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.category-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+}
+
+.category-card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    display: block;
+}
+
+.category-card h3 {
+    margin: 15px 0;
+    font-size: 1.3rem;
+}
+
+/* ==== RESPONSIVE ==== */
+@media (max-width: 768px) {
+    .top-page h1 {
+        font-size: 2rem;
+    }
+    .top-page p {
+        font-size: 1rem;
+    }
+}
