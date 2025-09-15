@@ -1,3 +1,5 @@
+{% extends 'base.html' %}
+
 
 <h1>Notre collection de {{ category.names }}</h1>
 <ul>
@@ -6,7 +8,7 @@
       <strong>{{ product.name }}</strong> - {{ product.price }} €
       {% if product.thumbnail %}
         <br>
-        <a href="{% url 'product_detail' product.id %}">
+        <a href="{% url 'product_detail' product.slug %}">
           <img src="{{ product.thumbnail.url }}" alt="{{ product.name }}" style="max-width: 200px;">
         </a>
       {% endif %}
@@ -15,3 +17,4 @@
     <li>Aucun produit dans cette catégorie.</li>
   {% endfor %}
 </ul>
+

@@ -1,0 +1,103 @@
+/* Container */
+.order-summary-container {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 25px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Titre */
+.order-summary-container h2 {
+    text-align: center;
+    font-size: 1.8em;
+    margin-bottom: 25px;
+    color: #3d2b4a;
+    border-bottom: 2px solid #c6a44d;
+    padding-bottom: 10px;
+}
+
+/* Tableau */
+.order-summary-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* En-tête */
+.order-summary-table th {
+    background: linear-gradient(135deg, #c6a44d, #3d2b4a);
+    color: #fff;
+    padding: 12px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1em;
+}
+
+/* Cellules */
+.order-summary-table td {
+    padding: 12px;
+    text-align: center;
+    border-bottom: 1px solid #eaeaea;
+}
+
+/* Lignes alternées */
+.order-summary-table tbody tr:nth-child(odd) {
+    background: #fafafa;
+}
+
+/* Hover sur ligne */
+.order-summary-table tbody tr:hover {
+    background: #f5f0e6;
+    transition: 0.3s;
+}
+
+/* Total */
+.total {
+    text-align: right;
+    font-size: 1.3em;
+    font-weight: bold;
+    margin-top: 15px;
+    color: #3d2b4a;
+}
+
+/* Boutons */
+.btn-checkout {
+    display: inline-block;
+    background: #c6a44d;
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: 0.3s;
+    margin-top: 15px;
+}
+
+.btn-checkout:hover {
+    background: #3d2b4a;
+}
+
+/* Bouton retour */
+.btn-return {
+    display: inline-block;
+    margin-top: 20px;
+    text-decoration: none;
+    background: #f0f0f0;
+    padding: 10px 20px;
+    border-radius: 6px;
+    color: #3d2b4a;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.btn-return:hover {
+    background: #c6a44d;
+    color: #fff;
+}
