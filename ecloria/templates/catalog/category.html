@@ -6,11 +6,10 @@
     {% if categories %}
         {% for category in categories %}
             <div>
-                <h2>{{ category.names }}</h2>
-                <p>{{ category.description }}</p>
                 {% if category.thumbnail %}
                     <a href="{% url 'product_list' category.id %}">
                         <img src="{{ category.thumbnail.url }}" alt="{{ category.names }}" style="max-width: 400px;">
+                        <h2>{{ category.names }}</h2>
                     </a>
                 {% endif %}
             </div>

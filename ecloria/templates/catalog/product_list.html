@@ -1,20 +1,25 @@
 {% extends 'base.html' %}
 
+{% block content %}
+        <h1>Produits de la catégorie : {{ category.names }}</h1>
 
-<h1>Notre collection de {{ category.names }}</h1>
-<ul>
-  {% for product in products %}
-    <li>
-      <strong>{{ product.name }}</strong> - {{ product.price }} €
-      {% if product.thumbnail %}
-        <br>
-        <a href="{% url 'product_detail' product.slug %}">
-          <img src="{{ product.thumbnail.url }}" alt="{{ product.name }}" style="max-width: 200px;">
-        </a>
-      {% endif %}
-    </li>
-  {% empty %}
-    <li>Aucun produit dans cette catégorie.</li>
-  {% endfor %}
-</ul>
+        {% if products %}
+            <ul>
+                {% for product in products %}
+                    <li class="product-item">
+                        <a href="{% url 'product_detail' product.slug %}">
+                            {% if product.thumbnail %}
+                                <img src="{{ product.thumbnail.url }}" alt="{{ product.name }}" style="max-width: 300px;">
+                            {% endif %}
+                            <h3>{{ product.name }}</h3>
+                        </a>
+                        <p><strong>Prix :</strong> {{ product.price }} €</p>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>Aucun produit dans cette catégorie.</p>
+        {% endif %}
 
+        <a href="{% url 'home' %}">← Retour à l'accueil</a>
+{% endblock %}
