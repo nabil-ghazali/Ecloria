@@ -15,7 +15,7 @@
         rel="stylesheet">
     <!-- end google font -->
     <!-- normalaize all elements  -->
-    <link rel="stylesheet" href="{% static 'css/normalize.css' %}"">
+    <link rel="stylesheet" href="{% static 'css/normalize.css' %}">
     <!-- end normalaize all elements  -->
     <!-- font awesome -->
     <link rel="stylesheet" href="{% static 'css/all.min.css' %}">
@@ -26,8 +26,11 @@
     <!-- main css -->
     <link rel="stylesheet" href="{% static 'css/login/login.css' %}">
     <!-- end main css -->
+    <!-- Le css de home page -->
+    <link rel="stylesheet" href="{% static 'css/home/home.css' %}">
 
     <title>Ecloria</title>
+    
 </head>
 
 <body>
@@ -36,7 +39,7 @@
         <nav>
             <div class="logo">
                 <a href="{% url 'home' %}">
-                    <img src="{% static 'img/logo.png'}" alt="logo ecloria" class="logo">
+                    <img src="{% static 'img/logo.png'%}" alt="logo ecloria" class="logo">
                 </a>
             </div>
 
@@ -55,7 +58,6 @@
                         {% else %}
                             <!-- Affiche les liens de connexion et d'inscription si l'utilisateur n'est pas connecté -->
                             <a href="{% url 'login' %}">Connection</a>
-                            <a href="{% url 'signup' %}">Inscription</a>
                         {% endif %}
                     </li>
                 </ul>
