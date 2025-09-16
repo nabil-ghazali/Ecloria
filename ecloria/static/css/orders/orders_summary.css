@@ -12,7 +12,7 @@
 
 /* Animation d'apparition */
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
+    from { opacity: 0; transform: translateY(500px); }
     to { opacity: 1; transform: translateY(0); }
 }
 
@@ -29,7 +29,7 @@
     content: "";
     width: 80px;
     height: 4px;
-    background: linear-gradient(90deg, #c6a44d, #3d2b4a);
+    background: linear-gradient(135deg, #c6a44d, #000000);
     display: block;
     margin: 10px auto 0;
     border-radius: 2px;
@@ -47,7 +47,8 @@
 
 /* En-tête */
 .order-summary-table th {
-    background: linear-gradient(135deg, #c6a44d, #3d2b4a);
+    
+    background: linear-gradient(135deg, #000000 45%, #c6a44d 100%);
     color: #fff;
     padding: 14px;
     text-align: center;
@@ -55,6 +56,7 @@
     font-size: 1em;
     text-transform: uppercase;
     letter-spacing: 0.5px;
+
 }
 
 /* Cellules */
@@ -113,7 +115,7 @@
 /* Boutons principaux */
 .btn-checkout {
     display: inline-block;
-    background: linear-gradient(135deg, #c6a44d, #3d2b4a);
+    background: linear-gradient(135deg,  #c6a44d 60%, #000000 100%);
     color: white;
     padding: 14px 30px;
     border: none;
@@ -137,10 +139,12 @@
     background: #f0f0f0;
     padding: 12px 25px;
     border-radius: 8px;
+    border: 2px solid #c6a44d;  
     color: #3d2b4a;
     font-weight: 600;
     transition: 0.3s;
 }
+
 .btn-return:hover {
     background: #c6a44d;
     color: #fff;
@@ -148,7 +152,7 @@
 
 /* Bouton supprimer */
 .btn-delete {
-    background-color: #ff4d4f;
+    background-color: #fc2226;
     color: white;
     padding: 7px 12px;
     border-radius: 6px;
@@ -159,4 +163,23 @@
 .btn-delete:hover {
     background-color: #d9363e;
     transform: scale(1.05);
+}
+
+/* Bouton suprimer tout le panier */
+.btn-delete-all {
+    display: inline-block;
+    margin-top: 20px;
+    text-decoration: none;
+    background: #f0f0f0;
+    padding: 12px 25px;
+    border-radius: 8px;
+    border: 2px solid #c6a44d;  
+    color: #3d2b4a;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.btn-delete-all:hover {
+    background: #c6a44d;
+    color: #fff;
 }
