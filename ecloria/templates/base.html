@@ -14,6 +14,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&display=swap"
         rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tagesschrift&display=swap" rel="stylesheet">
     <!-- end google font -->
     <!-- normalaize all elements  -->
     <link rel="stylesheet" href="{% static 'css/normalize.css' %}">
@@ -24,7 +28,7 @@
     <!-- main css -->
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
     <!-- end main css -->
-    <!-- main css -->
+    <!-- login css -->
     <link rel="stylesheet" href="{% static 'css/login/login.css' %}">
     <!-- end main css -->
     <!-- Le css de home page -->
@@ -36,7 +40,7 @@
     <link rel="stylesheet" href="{% static 'css/orders/orders_summary.css' %}">
 
     <title>Ecloria</title>
-    
+
 </head>
 
 <body>
@@ -54,21 +58,21 @@
             <div class="tabs">
                 <div class="nav-toggle">&#9776;</div>
                 <ul>
-                <!-- Lien des categories dans le navigateur -->
-                {% for category in categories %}
+                    <!-- Lien des categories dans le navigateur -->
+                    {% for category in categories %}
                     <li>
-                        <a href="{% url 'product_list' category.id %}">{{ category.names }}</a>  
+                        <a href="{% url 'product_list' category.id %}">{{ category.names }}</a>
                     </li>
-                {% endfor %}
+                    {% endfor %}
                     <!-- Bouton Connexion / Déconnexion dynamique -->
                     <li>
                         {% if user.is_authenticated %}
-                            <!-- Affiche le nom de l'utilisateur connecté et le lien de déconnexion -->
-                            <p>Bonjour {{ user.username }} !</p>
-                            <a href="{% url 'logout' %}">Se déconnecter</a>
+                        <!-- Affiche le nom de l'utilisateur connecté et le lien de déconnexion -->
+                        <p>Bonjour {{ user.username }} !</p>
+                        <a href="{% url 'logout' %}">Se déconnecter</a>
                         {% else %}
-                            <!-- Affiche les liens de connexion et d'inscription si l'utilisateur n'est pas connecté -->
-                            <a href="{% url 'login' %}">Connection</a>
+                        <!-- Affiche les liens de connexion et d'inscription si l'utilisateur n'est pas connecté -->
+                        <a href="{% url 'login' %}">Connection</a>
                         {% endif %}
                     </li>
                 </ul>
@@ -92,27 +96,27 @@
         </div>
     </div>
     <main>
-    <!-- news section  -->
+        <!-- news section  -->
         <!-- <div class="container"> -->
-            {% block content %}{% endblock %}
+        {% block content %}{% endblock %}
         <!-- </div> -->
-    <!-- end  news section  -->
-    <!-- end search & buy section -->
+        <!-- end  news section  -->
+        <!-- end search & buy section -->
     </main>
     <footer>
-        <div class="news">
+        <!-- <div class="news">
             <label class="newsletter" for="Newsletter">subscribe :</label>
             <input class="newsletter" type="email" id="Newsletter" placeholder="example @ email">
-        </div>
+        </div> -->
         <div class="container">
             <div class="categ">
-                 <ul>
-                <!-- Lien des categories dans le navigateur -->
-                {% for category in categories %}
+                <ul>
+                    <!-- Lien des categories dans le navigateur -->
+                    {% for category in categories %}
                     <li>
-                        <a href="{% url 'product_list' category.id %}">{{ category.names }}</a>  
+                        <a href="{% url 'product_list' category.id %}">{{ category.names }}</a>
                     </li>
-                {% endfor %}
+                    {% endfor %}
                 </ul>
             </div>
             <div class="social">

@@ -25,3 +25,4 @@ ecloria-PprtxQzR-py3.13/
 # Virtual environments
 .env/
 
+.DS_Store
