@@ -43,9 +43,9 @@
             Total : {{ orders|calc_cart_total }} €
         </p>
 
-        <a href="{% url 'delete-cart'%}">Supprimer le panier</a>
+        <a href="{% url 'delete-cart'%}" class="btn-delete-all">Supprimer le panier</a>
 
-        <a href="{% url 'home' %}" class="btn-return">← Continuer vos achats</a>
+        <a href="{% url 'home' %}" class="btn-return">Continuer vos achats</a>
 
         <form action="{% url 'create-checkout-session' %}" method="post">
             {% csrf_token %}

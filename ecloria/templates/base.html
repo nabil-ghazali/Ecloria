@@ -33,6 +33,11 @@
     <!-- end main css -->
     <!-- Le css de home page -->
     <link rel="stylesheet" href="{% static 'css/home/home.css' %}">
+    <!-- Lien image Icone + css panier -->
+    <link rel="stylesheet" href="{% static 'css/icones.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Lien css order -->
+    <link rel="stylesheet" href="{% static 'css/orders/orders_summary.css' %}">
 
     <title>Ecloria</title>
 
@@ -82,7 +87,12 @@
             <i class="fa-solid fa-magnifying-glass" id="searchBtn"></i>
         </div>
         <div class="basket">
+            <a href="{% url 'cart' %}" class="cart-icon">
             <i class="fa-solid fa-cart-shopping"></i>
+            {% if cart_item_count|default:0 > 0 %}
+                <span class="cart-count">{{ cart_item_count }}</span>
+            {% endif %}
+            </a>
         </div>
     </div>
     <main>

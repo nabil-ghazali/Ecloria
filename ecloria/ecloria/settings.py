@@ -68,6 +68,7 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
                 'django.template.context_processors.media',
                 'catalog.context_processors.categories_processor',
+                'orders.context_processors.cart_item_count',
 
             ],
         },
