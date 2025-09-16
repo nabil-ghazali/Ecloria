@@ -1,12 +1,13 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
-<div class="card-container">
-    <div class="card">
+<div class="card-container-product">
+    <div class="card-product">
         <h1>{{ product.name }}</h1>
 
         {% if product.thumbnail %}
-            <img src="{{ product.thumbnail.url }}" alt="{{ product.name }}" style="max-width: 400px;">
+            <img src="{{ product.thumbnail.url }}" alt="{{ product.name }}" style="max-width: 300px;">
         {% endif %}
 
         <p><strong>Prix :</strong> {{ product.price }} €</p>
@@ -19,8 +20,6 @@
                 <button type="submit" class="btn-add-cart">Ajouter au panier</button>
             </form>
 
-            <!-- Lien pour voir le panier -->
-            <a href="{% url 'cart' %}" class="btn-view-cart">Voir le panier</a>
         {% else %}
             <!-- Bouton qui renvoie vers login si NON connecté -->
             <a href="{% url 'login' %}" class="btn-add-cart">Ajouter au panier</a>

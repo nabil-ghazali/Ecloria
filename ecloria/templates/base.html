@@ -38,7 +38,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Lien css order -->
     <link rel="stylesheet" href="{% static 'css/orders/orders_summary.css' %}">
-
+    <!-- Lien css product_detail -->
+    <link rel="stylesheet" href="{% static 'css/category/product_detail.css' %}">
     <title>Ecloria</title>
 
 </head>
@@ -68,8 +69,10 @@
                     <li>
                         {% if user.is_authenticated %}
                         <!-- Affiche le nom de l'utilisateur connecté et le lien de déconnexion -->
-                        <p>Bonjour {{ user.username }} !</p>
-                        <a href="{% url 'logout' %}">Se déconnecter</a>
+                         <div class="display-connection">
+                            <p>Bonjour {{ user.username }} !</p>
+                            <a href="{% url 'logout' %}">Se déconnecter</a>
+                        </div>
                         {% else %}
                         <!-- Affiche les liens de connexion et d'inscription si l'utilisateur n'est pas connecté -->
                         <a href="{% url 'login' %}">Connection</a>

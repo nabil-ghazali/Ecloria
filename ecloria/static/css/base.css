@@ -484,3 +484,12 @@ footer .news .newsletter:focus {
 }
 
 
+.display-connection{
+    display: flex;
+    align-items: center;
+    gap: 10px
+}
+
+.display-connection p{
+    color: var(--golden);
+}

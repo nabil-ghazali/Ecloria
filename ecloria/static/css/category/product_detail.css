@@ -1,0 +1,70 @@
+.card-container-product {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.card-product {
+    background: linear-gradient(135deg, #ffffff, #fefefe);
+    width: 50%;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    padding-bottom: 10px;
+}
+
+/* Bouton */
+form .btn-add-cart {
+    padding: 10px 15px;
+    background-color: #3d2b4a;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Effet au survol */
+form .btn-add-cart:hover {
+    background-color: #c6a44d;
+}
+
+.btn-back{
+    color: #3d2b4a;
+    text-decoration: none; /* enlève le soulignage */
+    font-weight: bold;     /* optionnel : mettre en gras */
+}
+
+.btn-back:hover {
+    text-decoration: underline; /* remet un soulignage seulement au survol */
+                                /* text-decoration-color: #c6a44d; */
+}
+
+/* ------------------------------------------------ Responsive ----------------------------------- */
+/* Small screens (mobile) --------------------------------- */
+@media (max-width: 768px) {
+img{
+    width: 200px;
+}
+h1{
+    font-size:larger;
+}
+}
+/* Medium screens (tablet)------------------------------ */
+@media (max-width: 1024px) {
+
+}
+
+/* Medium screens (small screen)------------------------------ */
+@media (max-width: 490px) {
+img{
+    width: 150px;
+}
+}
