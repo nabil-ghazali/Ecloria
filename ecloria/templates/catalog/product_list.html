@@ -1,7 +1,10 @@
 {% extends 'base.html' %}
 
+
+
+<!-- Section liste des produits dans une catégories -->
 {% block content %}
-        <h1>Produits de la catégorie : {{ category.names }}</h1>
+        <h1>Notre collection de {{ category.names }}</h1>
 
         {% if products %}
             <ul>
@@ -23,3 +26,17 @@
 
         <a href="{% url 'home' %}">← Retour à l'accueil</a>
 {% endblock %}
+
+<!-- Section liste des produits dans une catégories -->
+
+<section class="liste de produits">
+    <div class="liste de produits">
+        <a href="" class="box_produits"></a>
+    </div>
+</section>
+
+
+Liste de produits
+.box_produits {
+    background-image:
+}
