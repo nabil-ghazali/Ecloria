@@ -1,14 +1,24 @@
+main {
+    height: 100dvh;
+}
+
+@media (max-width: 1024px) and (max-width: 768px) {
+    main {
+        height: 100%;
+    }
+}
+
 .home-page-content {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
+    /* padding: 30px; */
+    height: 100dvh;
 }
 
-img {
-    width: 300px;
-}
+
 
 .categories {
     display: flex;
@@ -18,4 +28,262 @@ img {
 .category-grid {
     display: flex;
     flex-direction: row;
+}
+
+.top-page {
+    /* background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)),
+        url(../../img/BAGUE.jpg) center/cover no-repeat; */
+    background-image: url(../../img/BAGUE.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    width: 100dvw;
+}
+
+.top-page-child {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+}
+
+h1.top-page-header {
+    font-size: 2em;
+    margin: 0.67em 0;
+    font-family: cursive;
+    font-weight: 400;
+    color: var(--purple);
+    padding-bottom: 220px;
+}
+
+@media (max-width: 768px) {
+    h1.top-page-header {
+        display: flex;
+        flex-direction: column;
+        font-size: 1.5em;
+        transform: translateY(60px);
+        transition: translate 0.4s;
+    }
+}
+
+h1.top-page-header span.page-main-title {
+    font-size: 3em;
+    color: var(--golden);
+    text-shadow: 0 0 10px var(--purple), 0 0 20px var(--purple);
+    letter-spacing: 0.1em;
+}
+
+p.top-page-parag {
+    font-family: cursive;
+    font-size: 2em;
+    color: var(--purple);
+    text-shadow: 0 0 1px var(--purple), 0 0 4px var(--purple);
+    padding-top: 120px;
+}
+
+h2.about-headr {
+    font-size: xx-large;
+    font-family: cursive;
+    font-weight: bold;
+    color: var(--purple);
+}
+
+span.about-span {
+    color: var(--golden);
+}
+
+p.about-parag {
+    font-family: cursive;
+    font-size: medium;
+    color: var(--purple);
+}
+
+@media (max-width: 767px) {
+    h2.about-headr {
+        font-size: 24px;
+    }
+
+    p.about-parag {
+        padding: 0 5px;
+        margin-bottom: 0;
+    }
+}
+
+.see-all-btn {
+    margin: 30px 0;
+}
+
+
+a.show-all {
+    display: inline-block;
+    padding: 14px 32px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #fff;
+    background: linear-gradient(9deg, var(--golden), var(--purple));
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.4s ease;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* hover effect */
+a.show-all:hover {
+    transform: translateY(-4px) scale(1.2);
+    background: linear-gradient(45deg, #c59e03, #ffe000);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.5);
+}
+
+/* small glowing animation */
+a.show-all:focus,
+a.show-all:active {
+    outline: none;
+    box-shadow: 0 0 20px #ff6a00, 0 0 40px #ee0979;
+}
+
+
+/* slider ------------------------------ categories !!!!!!!!!!!!!!!!! ------##################### */
+
+section.all-categories {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    /* height: 100dvh; */
+    text-align: center;
+
+
+}
+
+section.all-categories {
+    transform: translateY(80px);
+}
+
+@media (max-width: 768px) {
+    section.all-categories {
+        transform: translateY(-80px)
+    }
+}
+
+h2.categories-header {
+    font-family: cursive;
+    font-weight: bold;
+    font-size: 3em;
+    color: var(--purple-);
+}
+
+
+.slider-track {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: row;
+    flex-wrap: wrap;
+    /* height: 100dvh;
+    width: 100dvw; */
+    gap: 30px
+}
+
+/* img.category-card-img {
+    width: 40dvh;
+} */
+
+
+
+
+a.category-card-a {
+    text-decoration: none;
+}
+
+.category-card {
+    background: #fff;
+    border-radius: 20px;
+    overflow: hidden;
+    width: 300px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    cursor: pointer;
+}
+
+/* Tablets and smaller (<= 1024px) */
+@media (max-width: 1024px) {
+    .category-card {
+        width: 45%;
+    }
+}
+
+/* Mobile (<= 768px) */
+@media (max-width: 768px) {
+    h2.categories-header {
+        padding-top: 25px;
+        font-size: 2em;
+    }
+}
+
+.slider-track {
+    padding-bottom: 15px;
+    /* transform: translateY(50px); */
+}
+
+@media (max-width: 768px) {
+
+    .slider-track {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+/* .category-card {
+    width: 70%;
+ 
+} */
+
+
+.category-card:hover {
+    transform: translateY(-10px) scale(1.03);
+    box-shadow: 0 20px 35px rgba(0, 0, 0, 0.25);
+}
+
+.category-card-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.category-card:hover .category-card-img {
+    transform: scale(1.1);
+}
+
+.category-card-header {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: var(--purple-);
+    margin: 15px 0 5px;
+    transition: color 0.3s ease;
+}
+
+.category-card:hover .category-card-header {
+    color: var(--golden);
+}
+
+.category-card-parag {
+    font-size: 0.95em;
+    color: #666;
+    padding: 0 15px 20px;
+    line-height: 1.4em;
+    transition: color 0.3s ease;
+}
+
+.category-card:hover .category-card-parag {
+    color: #333;
+}
+
+a.category-card-a {
+    text-decoration: none;
+    color: inherit;
+    display: block;
 }

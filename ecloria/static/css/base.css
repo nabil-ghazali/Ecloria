@@ -16,16 +16,9 @@ body {
     margin: 0;
     padding: 0;
     /* overflow: hidden; */
+    overflow-x: hidden;
 
 }
-
-/* html,
-body {
-    width: 100%;
-    overflow-x: hidden;
-    margin: 0;
-    padding: 0;
-} */
 
 /* --------------------------- start header ------------------------------ */
 header nav {
@@ -202,28 +195,7 @@ p.page-description {
 
 }
 
-/* category container */
 
-.categories-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 25px;
-    max-width: 1200px;
-    margin: 40px auto;
-    padding: 0 20px;
-}
-
-.category-card {
-    background: linear-gradient(135deg, #ffffff, #fefefe);
-    border-radius: 15px;
-    overflow: hidden;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    cursor: pointer;
-}
 
 /* --------------------------------- start footer ------------------------------------------ */
 
@@ -481,15 +453,3 @@ footer .news .newsletter:focus {
         bottom: 220px; */
         left: 10px;
     }
-}
-
-
-.display-connection{
-    display: flex;
-    align-items: center;
-    gap: 10px
-}
-
-.display-connection p{
-    color: var(--golden);
-}

@@ -18,7 +18,7 @@ db.sqlite3
 # staticfiles/
 
 # # OS/IDE
-# .DS_Store
+.DS_Store
 # .vscode/
 # .idea/
 

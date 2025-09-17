@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="all-categories">
+    <h2 class="categories-header">Toutes les catégories</h2>
+    <!-- visible viewport -->
+    <div class="slider-track">
+        {% if categories %}
+        {% for category in categories %}
+        <div class="category-card">
+            <a class="category-card-a" href="{% url 'product_list' category.id %}">
+                {% if category.thumbnail %}
+                <img class="category-card-img" src="{{ category.thumbnail.url }}" alt="{{ category.names }}">
+                {% endif %}
+                <h3 class="category-card-header">{{ category.names }}</h3>
+                <p class="category-card-parag">{{ category.description }}</p>
+            </a>
+        </div>
+        {% endfor %}
+        {% else %}
+        <p>Aucune catégorie disponible.</p>
+        {% endif %}
+    </div>
+</section>
+{% endblock %}
