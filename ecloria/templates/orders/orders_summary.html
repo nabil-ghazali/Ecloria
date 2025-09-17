@@ -13,7 +13,9 @@
                     <th>Produit</th>
                     <th>Prix Unitaire</th>
                     <th>Quantité</th>
+                    <th>Modifier Quantité</th>
                     <th>Total</th>
+
                 </tr>
             </thead>
             <tbody>
@@ -22,7 +24,16 @@
                     <td>{{ order.product.name }}</td>
                     <td>{{ order.product.price }} €</td>
                     <td>{{ order.quantity }}</td>
+                    <td>
+                        <form action="{% url 'update-quantity' order.id %}" method="post" style="display:inline;">
+                            {% csrf_token %}
+                            <input type="number" name="quantity" value="{{ order.quantity }}" min="0" style="width:60px; text-align:center;">
+                            <button type="submit" class="btn-update">✔</button>
+                        </form>
+                    </td>
                     <td>{{ order.product.price|multiply:order.quantity }} €</td>
+                    <td><a href="{% url 'delete-order' order.id %}" class="btn-delete">🗑 Supprimer</a></td>
+
                 </tr>
                 {% endfor %}
             </tbody>
@@ -32,8 +43,14 @@
             Total : {{ orders|calc_cart_total }} €
         </p>
 
+        <a href="{% url 'delete-cart'%}" class="btn-delete-all">Supprimer le panier</a>
 
-        <a href="{% url 'home' %}" class="btn-return">← Continuer vos achats</a>
+        <a href="{% url 'home' %}" class="btn-return">Continuer vos achats</a>
+
+        <form action="{% url 'create-checkout-session' %}" method="post">
+            {% csrf_token %}
+            <button type="submit" class="btn-checkout">Passer la commande</button>
+        </form>
 
     {% else %}
         <p>Votre panier est vide.</p>
@@ -42,7 +59,4 @@
 </div>
 {% endblock %}
 
-        <!-- <form action="{% url 'checkout' %}" method="post">
-            {% csrf_token %}
-            <button type="submit" class="btn-checkout">Passer la commande</button>
-        </form> -->
+

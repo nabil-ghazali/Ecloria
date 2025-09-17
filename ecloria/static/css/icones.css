@@ -1,0 +1,22 @@
+.cart-icon {
+    position: relative;
+    display: inline-block;
+    font-size: 1.5em; /* taille de l’icône */
+    color: #3d2b4a;
+}
+
+.cart-count {
+    position: absolute;
+    top: -8px;
+    right: -10px;
+    background: #c6a44d;
+    color: white;
+    font-size: 0.60em;
+    font-weight: bold;
+    padding: 3px 6px;
+    border-radius: 50%;  /* cercle */
+    min-width: 20px;     /* évite l’ovale pour les chiffres >9 */
+    text-align: center;
+    line-height: 1;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2); /* petit effet */
+}

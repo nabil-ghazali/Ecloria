@@ -12,17 +12,12 @@
 }
 
 body {
-    font-family: "Cinzel Decorative", serif;
+    font-family: "Tagesschrift", system-ui;
     margin: 0;
     padding: 0;
-}
+    /* overflow: hidden; */
+    overflow-x: hidden;
 
-html, body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
 }
 
 /* --------------------------- start header ------------------------------ */
@@ -35,9 +30,7 @@ header nav {
 }
 
 /* header en haut */
-header {
-    flex-shrink: 0;
-}
+
 
 .tabs {
     display: flex;
@@ -79,10 +72,12 @@ nav a:hover {
     display: flex;
     justify-content: end;
     align-items: center;
-    height: 100px;
-    width: 100%;
-    margin-left: -50px;
+    padding-right: 20px;
     gap: 10px;
+    height: 0;
+    position: absolute;
+    top: 135px;
+    right: 15px;
 }
 
 .tobuy i {
@@ -147,44 +142,82 @@ nav a:hover {
     z-index: 10;
 }
 
+/* ----------------------------------------------------------------------------------------- */
+/* page name header */
 
-/* --------------------------------------- main --------------------------------------------- */
-
-/* main occupe l’espace entre header et footer */
-main {
-    flex: 1;
+.page-main {
     display: flex;
-    justify-content: center;   /* centre horizontalement le contenu */
-    align-items: flex-start;   /* commence juste sous le header */
-    padding: 0px 20px 160px; /* top=100px pour laisser place au header, 
-                                  bottom=160px pour laisser place au footer */
-    box-sizing: border-box;
-    overflow-y: auto;          /* permet le scroll interne */
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 15px;
+    background: url(../img/main_back.jpg) no-repeat center center fixed;
+    background-size: cover;
+    height: 100dvh;
+    text-align: center;
+
 }
 
-
-                    /* ---------------------- dans le main ----------------------*/
-main .containe {
-    width: 100%;
-    max-width: 500px; /* limite la largeur du formulaire*/
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+p.page-title {
+    font-size: 32px;
+    font-family: cursive;
+    margin: 0;
+    color: var(--purple);
 }
 
+h1.page-name {
 
-                    /* ---------------------- dans le main ----------------------*/
+    font-size: 9em;
+    margin: 0;
+    font-family: cursive;
+    color: var(--golden);
+    transform: translateY(136px);
+    /* /* font-size: 100px; */
+}
+
+p.page-description {
+    text-align: center;
+    font-family: cursive;
+    color: var(--purple);
+}
+
+/* ------------------------------ */
+@media (max-width: 849px) {
+    .page-main {
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        align-items: baseline;
+        text-align: center;
+    }
+
+
+}
+
 
 
 /* --------------------------------- start footer ------------------------------------------ */
+
+footer .container {
+    background-color: var(--grey);
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    /* position: absolute;
+    bottom: 0; */
+    width: 100%;
+    height: 130px;
+    flex-wrap: wrap;
+}
+
 footer .news {
-    position: absolute;
+    /* position: absolute; */
     bottom: 140px;
     left: 10px;
 }
 
-footer .news .newsletter {
+/* footer .news .newsletter {
     width: 200px;
     transform-origin: left;
     transform: scaleX(1);
@@ -193,19 +226,7 @@ footer .news .newsletter {
 
 footer .news .newsletter:focus {
     transform: scaleX(1.5);
-}
-
-footer .container {
-    background-color: var(--grey);
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    position: fixed; /*  changement de absolute par fixed pour forcer footer a resté en bas */
-    bottom: 0;
-    width: 100%;
-    height: 130px;
-    flex-wrap: wrap;
-}
+} */
 
 .container .categ ul {
     list-style: none;
@@ -290,11 +311,6 @@ footer .container {
     font-weight: bold;
 }
 
-/* footer en bas */
-footer {
-    flex-shrink: 0;
-    background-color: var(--grey);
-}
 
 /* ------------------------------------------------ Responsive ----------------------------------- */
 
@@ -316,24 +332,20 @@ footer {
         display: flex;
         flex-direction: row;
         height: auto;
+        /* position: absolute;
+        bottom: 0; */
         padding: 20px 0;
         font-size: 10px;
-        footer .container {
-        position: fixed; /*  changement de absolute par fixed pour forcer footer a resté en bas */
 
-        }
 
     }
 
     footer .news {
-        position: fixed;
+        /* position: fixed; */
         bottom: 130px;
         left: 10px;
     }
 
-    /* footer .container .Mentions-légales {
-        display: none;
-    } */
 
     .name h6 {
         font-size: 10px;
@@ -375,69 +387,70 @@ footer {
         margin: 0;
         padding: 0;
     }
+}
 
-    /* Mobile menu */
-    @media (max-width: 768px) {
-        .nav-toggle {
-            display: block;
-        }
-
-        .tabs ul {
-            flex-direction: column;
-            position: absolute;
-            top: 88px;
-            left: 0;
-            width: 100%;
-            background-color: #e6e6e6c9;
-            padding: 10px 0;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            max-height: 0;
-            opacity: 0;
-            overflow: hidden;
-            transition: max-height 0.5s ease, opacity 0.5s ease;
-        }
-
-        .tabs ul.show {
-            max-height: 500px;
-            /* enough to show all items */
-            opacity: 1;
-        }
-
-        .tabs ul li {
-            padding: 10px 20px;
-        }
-
-        .tabs ul li a {
-            text-decoration: none;
-            color: #333;
-        }
-
-        .tabs ul li a:hover {
-            color: var(--golden);
-            padding-left: 30px;
-            transition-duration: var(--main-duration);
-        }
-        
+/* Mobile menu */
+@media (max-width: 768px) {
+    .nav-toggle {
+        display: block;
     }
 
-
-    footer .container .categ {
-        /* hide category section */
-        display: none;
-    }
-
-    footer .container {
+    .tabs ul {
         flex-direction: column;
-        height: auto;
+        position: absolute;
+        top: 100px;
+        left: 0;
+        width: 100%;
+        background-color: #e6e6e6c9;
         padding: 10px 0;
-        gap: 10px;
-        position: fixed;
-        bottom: 0;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        max-height: 0;
+        opacity: 0;
+        transition: max-height 0.5s ease, opacity 0.5s ease;
     }
 
-    footer .news {
-        position: fixed;
-        bottom: 220px;
-        left: 10px;
+    .tabs ul.show {
+        max-height: 500px;
+        /* enough to show all items */
+        opacity: 1;
     }
+
+    .tabs ul li {
+        padding: 10px 20px;
+    }
+
+    .tabs ul li a {
+        text-decoration: none;
+        color: #333;
+    }
+
+    .tabs ul li a:hover {
+        color: var(--golden);
+        padding-left: 30px;
+        transition-duration: var(--main-duration);
+    }
+}
+
+
+footer .container .categ {
+    /* hide category section */
+    display: none;
+
+}
+
+
+
+
+
+/* welcome msg user  */
+
+.display-connection {
+    display: flex;
+    align-items: center;
+    gap: 10px
+}
+
+.display-connection p {
+    color: var(--golden);
+
 }

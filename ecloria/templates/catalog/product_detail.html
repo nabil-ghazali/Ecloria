@@ -1,30 +1,34 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
-<div class="card-container">
-    <div class="card">
+<div class="card-container-product">
+    <div class="card-product">
         <h1>{{ product.name }}</h1>
 
         {% if product.thumbnail %}
-            <img src="{{ product.thumbnail.url }}" alt="{{ product.name }}" style="max-width: 400px;">
+            <img src="{{ product.thumbnail.url }}" alt="{{ product.name }}" style="max-width: 300px;">
         {% endif %}
 
         <p><strong>Prix :</strong> {{ product.price }} €</p>
         <p>{{ product.description }}</p>
-    {% if user.is_authenticated %}    
-        <!-- Bouton Ajouter au panier -->
-        <form action="{% url 'add-to-cart' product.slug %}" method="post">
-            {% csrf_token %}
-            <button type="submit" class="btn-add-cart">Ajouter au panier</button>
-        </form>
-    {% endif %}
-        <a href="{% url 'product_list' product.category.id %}">Retour à la liste des produits</a>
-        <!-- Bouton Ajouter au panier -->
 
-        <a href="{% url 'product_list' product.category.id %}">← Retour à {{ product.category.names }}</a>
+        {% if user.is_authenticated %}
+            <!-- Bouton Ajouter au panier si connecté -->
+            <form action="{% url 'add-to-cart' product.slug %}" method="post" style="display:inline;">
+                {% csrf_token %}
+                <button type="submit" class="btn-add-cart">Ajouter au panier</button>
+            </form>
+
+        {% else %}
+            <!-- Bouton qui renvoie vers login si NON connecté -->
+            <a href="{% url 'login' %}" class="btn-add-cart">Ajouter au panier</a>
+        {% endif %}
+
+        <!-- Retour à la liste des produits -->
+        <a href="{% url 'product_list' product.category.id %}" class="btn-back">Retour à la liste des produits</a>
     </div>
 </div>
 {% endblock %}
-
 
 

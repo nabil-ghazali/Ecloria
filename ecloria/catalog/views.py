@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, render
 from catalog.models import Category, Product
 
 def home(request):
@@ -8,6 +8,14 @@ def home(request):
         "catalogues": catalogues,
         "categories": catalogues 
     })
+    
+
+
+def all_categories(request):
+    categories = Category.objects.all()
+    return render(request, 'catalog/list_cat.html', {'categories': categories})
+
+
 
 
 def product_list(request, category_id):
