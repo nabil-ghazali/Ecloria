@@ -85,7 +85,7 @@ form a:hover {
 /* Mobiles */
 @media (max-width: 480px) {
     .card-container {
-        width: 95%;
+        width: 80%;
         margin: 10px auto;
         padding: 10px;
     }

@@ -3,76 +3,78 @@ from django.db import models
 from catalog.models import Product
 
 
-# Order 
-""" 
-- User
-- Product 
-- Quantity
-- Ordered or Not 
+# -------------------------------
+# 📦 Order (Commande d’un produit)
+# -------------------------------
+"""
+Un Order représente UNE ligne de commande :
+- Quel utilisateur a commandé ?
+- Quel produit a été ajouté au panier ?
+- Quelle quantité ?
+- Est-ce que la commande a été validée (passée) ou non ?
 """
 class Order(models.Model):
-    # Link each order to a user (customer).
-    # If the user is deleted, their orders are also deleted.
-    # related_name="orders" lets you access a user's orders via user.orders.all()
+    # Lien vers l’utilisateur qui a passé la commande
+    # settings.AUTH_USER_MODEL = modèle User défini dans ton projet (souvent "auth.User" ou "accounts.User")
+    # CASCADE : si un utilisateur est supprimé, toutes ses commandes le sont aussi
+    # related_name="orders" → permet d’écrire user.orders.all() pour accéder aux commandes d’un utilisateur
     user = models.ForeignKey(
         settings.AUTH_USER_MODEL,
         on_delete=models.CASCADE,
         related_name="orders"
     )
 
-    # Link each order to a product.
-    # If the product is deleted, related orders will also be deleted.
+    # Lien vers le produit commandé
+    # CASCADE : si le produit est supprimé, toutes les commandes associées disparaissent aussi
     product = models.ForeignKey(
         Product,
         on_delete=models.CASCADE
     )
 
-    # Number of units of the product in this order.
+    # Nombre d’unités du produit commandées
     quantity = models.IntegerField(default=1)
 
-    # Indicates whether the order has been completed/placed.
+    # Est-ce que cette commande a été validée (payée) ?
     ordered = models.BooleanField(default=False)
 
-    # Store the date and time when the order was created.
+    # Date de création de la commande (automatique)
     created_at = models.DateTimeField(auto_now_add=True)
 
-    # Store the date and time when the order was last updated.
+    # Date de dernière modification (mise à jour auto à chaque changement)
     updated_at = models.DateTimeField(auto_now=True)
 
-    # String representation of the order, useful in the Django admin.
+    # Représentation lisible de l’objet (utile dans l’admin Django et le shell)
     def __str__(self):
         return f"{self.product.name} ({self.quantity})"
 
 
-# Cart # panier 
-
-""" 
-- User
-- Order 
-- Ordered or Not
-- purchase date
+# -------------------------------
+# 🛒 Cart (Panier d’un utilisateur)
+# -------------------------------
 """
-# panier
-
+Un Cart représente le PANIER d’un utilisateur :
+- Chaque utilisateur a UN SEUL panier actif
+- Un panier peut contenir plusieurs commandes (Order)
+- On peut savoir si le panier est validé (payé) ou encore en cours
+"""
 class Cart(models.Model):
-    # Link the cart to a single user (each user has only one cart)
-    # If the user is deleted, the cart is also deleted
+    # Lien unique vers un utilisateur (chaque utilisateur a un panier)
+    # OneToOneField → garantit qu’un seul panier par utilisateur existe
+    # CASCADE : si l’utilisateur est supprimé, son panier l’est aussi
     user = models.OneToOneField(
         settings.AUTH_USER_MODEL, 
         on_delete=models.CASCADE
     )
 
-    # Link the cart to multiple orders
-    # A cart can contain multiple orders, and each order can belong to multiple carts (if needed)
+    # Relation ManyToMany avec Order → un panier peut contenir plusieurs commandes
     orders = models.ManyToManyField(Order)
 
-    # Indicates whether the cart has been purchased or not
+    # Indique si le panier a été finalisé (payé) ou pas
     ordered = models.BooleanField(default=False)
 
-    # Purchase date, can be blank/null if the cart hasn't been purchased yet
+    # Date d’achat → reste vide tant que le panier n’a pas été validé
     purchase_date = models.DateTimeField(blank=True, null=True)
     
-    # String representation of the cart
-    # Displays the username of the cart owner in Django admin or when printed
+    # Représentation lisible de l’objet (affiche le nom d’utilisateur)
     def __str__(self):
         return self.user.username

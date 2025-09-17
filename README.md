@@ -1,80 +1,50 @@
-Dossier/App	Rôle
-ecloria/	Le projet principal (configuration globale, routes, settings)
-users/	Gestion des utilisateurs et rôles (client/admin)
-catalog/	Gestion des produits et catégories
-orders/	Gestion des commandes et paiements
-templates/	Pages HTML que l’utilisateur voit
-static/	Fichiers CSS, JS et images pour le site
-media/	Fichiers uploadés par les utilisateurs (photos produits, avatars…)
-tests/	Tests pour vérifier que tout fonctionne correctement
+##  Ecloria - Site E-commerce avec Django & Stripe
 
+Un projet Django permettant de gérer un catalogue de produits avec images, un panier d’achats, et un paiement en ligne avec Stripe (mode test).  
+Projet développé avec **Poetry** pour la gestion des dépendances.
 
-ecloria/                  # Racine du projet
-├── .gitignore
-├── pyproject.toml
-├── poetry.lock
-├── README.md
-├── .env.example
-├── manage.py
-├── ecloria/               # Projet Django principal
-│   ├── __init__.py
-│   ├── settings.py
-│   ├── urls.py
-│   ├── asgi.py
-│   └── wsgi.py
-├── home/                  # App pour la page d'accueil
-│   ├── __init__.py
-│   ├── admin.py
-│   ├── apps.py
-│   ├── views.py           # Vue home
-│   ├── urls.py            # URL de la page d'accueil
-│   └── migrations/
-├── users/                 # App utilisateurs
-│   ├── __init__.py
-│   ├── admin.py
-│   ├── apps.py
-│   ├── models.py
-│   ├── forms.py
-│   ├── views.py
-│   ├── urls.py
-│   └── migrations/
-├── catalog/               # App produits et catégories
-│   ├── __init__.py
-│   ├── admin.py
-│   ├── apps.py
-│   ├── models.py
-│   ├── views.py
-│   ├── urls.py
-│   └── migrations/
-├── orders/                # App commandes et paiements
-│   ├── __init__.py
-│   ├── admin.py
-│   ├── apps.py
-│   ├── models.py
-│   ├── views.py
-│   ├── urls.py
-│   └── migrations/
-├── templates/             # Templates HTML
-│   ├── base.html          # Layout global
-│   ├── home/
-│   │   └── home.html      # Page d'accueil
-│   ├── users/
-│   │   └── login.html
-│   ├── catalog/
-│   │   ├── product_list.html
-│   │   └── product_detail.html
-│   └── orders/
-│       └── order_summary.html
-├── static/                # Fichiers CSS, JS, images
-│   ├── css/
-│   │   └── base.css
-│   ├── js/
-│   │   └── script.js
-│   └── img/
-├── media/                 # Fichiers uploadés
-└── tests/                 # Tests unitaires
-    ├── __init__.py
-    ├── test_home.py
-    ├── test_users.py
-    ├── test_catalog.py
-    └── test_orders.py
+---
+
+##  Fonctionnalités principales
+
+-  Authentification utilisateur (connexion / inscription)
+-  Espace **superadmin** (via Django Admin)
+-  Catalogue de produits (nom, prix, description, image avec **Pillow**)
+-  Ajout d’un produit au panier
+-  Gestion du panier :
+  - Afficher le contenu
+  - Modifier les quantités
+  - Supprimer un produit
+  - Vider tout le panier
+-  Paiement sécurisé via **Stripe Checkout** (mode test)
+-  Page de succès et page d’annulation après paiement
+
+---
+
+##  Installation et configuration
+
+### 1. Cloner le projet
+```bash
+git clone https://github.com/mon-compte/ecloria.git
+cd ecloria
+
+### 2. Installer Poetry
+pip install poetry
+
+### 3. Installer les dépendances avec Poetry
+poetry install
+
+### 4. Activer l’environnement virtuel
+poetry env activate
+
+### 5. Configurer les variables d’environnement
+Créer un fichier .env à la racine du projet avec tes clés Stripe (mode test) 
+
+### 6. Appliquer les migrations
+python manage.py migrate
+
+### 7. Créer un superutilisateur
+python manage.py createsuperuser
+
+### 8. Lancer le serveur
+python manage.py runserver

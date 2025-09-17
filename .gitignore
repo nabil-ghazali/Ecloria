@@ -11,7 +11,7 @@ __pycache__/
 *.venv/
 ecloria-PprtxQzR-py3.13/ 
 #*pillow
-
+venv
 # # Django
 db.sqlite3
 # media/

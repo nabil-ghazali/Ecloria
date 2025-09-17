@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="order-summary-container">
+  <h2>Paiement annulé </h2>
+  <p>Le paiement a été annulé. Vous pouvez réessayer.</p>
+  <a href="{% url 'cart' %}">Retour au panier</a>
+</div>
+{% endblock %}
