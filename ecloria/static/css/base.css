@@ -438,22 +438,9 @@ footer .container .categ {
 
 }
 
-footer .container {
-    flex-direction: column;
-    height: auto;
-    padding: 10px 0;
-    gap: 10px;
-    /* position: absolute;
-        bottom: 0; */
-    text-align: center;
-    z-index: 20;
-}
 
-footer .news {
-    /* position: fixed;
-        bottom: 220px; */
-    left: 10px;
-}
+
+
 
 /* welcome msg user  */
 
