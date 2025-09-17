@@ -1,25 +1,38 @@
 {% extends 'base.html' %}
 
+<!-- Section liste des produits dans une catégories -->
 {% block content %}
-        <h1>Produits de la catégorie : {{ category.names }}</h1>
 
-        {% if products %}
-            <ul>
-                {% for product in products %}
-                    <li class="product-item">
-                        <a href="{% url 'product_detail' product.slug %}">
-                            {% if product.thumbnail %}
-                                <img src="{{ product.thumbnail.url }}" alt="{{ product.name }}" style="max-width: 300px;">
-                            {% endif %}
-                            <h3>{{ product.name }}</h3>
-                        </a>
-                        <p><strong>Prix :</strong> {{ product.price }} €</p>
-                    </li>
-                {% endfor %}
-            </ul>
-        {% else %}
-            <p>Aucun produit dans cette catégorie.</p>
-        {% endif %}
+<div class="container-produits-lists">
+    <h1 class="titre de produit">Notre collection de {{ category.names }}</h1>
+{% if products %}
+<section class="products-main">
+    {% for product in products %}
+    <div class="product-card">
+        <div class="product-image">
+            <a href="{% url 'product_detail' product.slug %}">
+                {% if product.thumbnail %}
+                    <img src="{{ product.thumbnail.url }}" alt="{{ product.name }}", style="max-width: 300px;">
+                {% endif %}
+            </a>
+            {% if product.is_new %}
+                <span class="badge">Nouveau</span>
+            {% endif %}
+        </div>
+        <div class="product-info">
+            <h3>{{ product.name }}</h3>
+            <p>{{ product.description|truncatechars:60 }}</p>
+            <span class="price">{{ product.price }} EUR</span>
+        </div>
+    </div>
+    {% endfor %}
+</section>
+{% else %}
+<p>Aucun produit dans cette catégorie.</p>
+{% endif %}
 
-        <a href="{% url 'home' %}">← Retour à l'accueil</a>
+<a href="{% url 'home' %}" class="back-link">← Retour à l'accueil</a>
+</div>
+
 {% endblock %}
+
